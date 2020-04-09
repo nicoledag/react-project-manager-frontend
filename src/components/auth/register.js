@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { signup } from '../../actions/currentUser.js';
 
 class Register extends Component {
     constructor(){
@@ -13,7 +15,7 @@ class Register extends Component {
 
     handleChange = (e) => {
         console.log(this.state)
-        this.state({
+        this.setState({
             [e.target.id]: e.target.value
         })
     }
@@ -21,6 +23,12 @@ class Register extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         console.log(this.state)
+        this.props.signup(this.state);
+        this.setState({
+            username: '',
+            email: '',
+            password: ''
+        })
     }
     render() { 
         return ( <div>
@@ -64,4 +72,4 @@ class Register extends Component {
     }
 }
  
-export default Register;
+export default connect(null, { signup })(Register);
