@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/projects')
+    .then(response => response.json())
+    .then(data => console.log(data))
+  }
 
-        <p>
-          Welcome to React!!!!!
-        </p>
-    
+  render() { 
+    return ( <div>
 
-    </div>
-  );
+    </div> );
+  }
 }
-
+ 
 export default App;
