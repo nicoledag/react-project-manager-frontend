@@ -6,7 +6,7 @@ import Register from './components/auth/Register'
 class App extends Component {
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/v1/projects')
+    fetch('http://localhost:3001/api/v1/users')
     .then(response => response.json())
     .then(data => console.log(data))
   }

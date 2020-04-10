@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { signup } from '../../actions/currentUser.js';
+import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { signup } from '../../actions/currentUser.js'
+import { Redirect } from 'react-router-dom'
 
 class Register extends Component {
     constructor(){
@@ -31,6 +32,10 @@ class Register extends Component {
         })
     }
     render() { 
+
+        const { loggedIn } = this.props;
+        if (loggedIn) return <Redirect to='/' />
+
         return ( <div>
             <h1>Register</h1>
             <p>Please fill out this form to create an account</p>
@@ -72,4 +77,10 @@ class Register extends Component {
     }
 }
  
-export default connect(null, { signup })(Register);
+const mapStateToProps = ({ currentUser }) => {
+    return {
+      currentUser,
+      loggedIn: !!currentUser
+    }
+  }
+  export default connect(mapStateToProps, { signup })(Register);
