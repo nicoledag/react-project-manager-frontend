@@ -5,6 +5,9 @@ import { BrowserRouter } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import store from './store.js'
+import './stylesheets/nav.css';
+import './stylesheets/style.css';
+import './stylesheets/form.css';
 
 ReactDOM.render(<Provider store={ store }><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('root'));
 

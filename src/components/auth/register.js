@@ -36,44 +36,48 @@ class Register extends Component {
         const { loggedIn } = this.props;
         if (loggedIn) return <Redirect to='/' />
 
-        return ( <div>
-            <h1>Register</h1>
-            <p>Please fill out this form to create an account</p>
+        return ( 
+            <div className="container-form">
+             <div className="middle-container">
+                <h1>Register</h1>
+                <p>Please fill out this form to create an account</p>
 
-            <form onSubmit={this.handleSubmit}>
-                <div className="row">
-                    <div className="label">
-                        <label htmlFor="username">Username:</label>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="row">
+                        <div className="label">
+                            <label htmlFor="username">Username:</label>
+                        </div>
+                        <input type="text" name="username" id="username" placeholder="Enter Username" onChange={this.handleChange} required/>
+
                     </div>
-                    <input type="text" name="username" id="username" placeholder="Enter Username" onChange={this.handleChange} required/>
 
-                </div>
-
-                <div className="row">
-                    <div className="label">
-                         <label htmlFor="email">Email:</label>
+                    <div className="row">
+                        <div className="label">
+                            <label htmlFor="email">Email:</label>
+                        </div>
+                        <input type="email" name="email" id="email" placeholder="Enter Email" onChange={this.handleChange} required/>
                     </div>
-                    <input type="email" name="email" id="email" placeholder="Enter Email" onChange={this.handleChange} required/>
-                </div>
-               
-                <div className="row">
-                    <div className="label">
-                         <label htmlFor="password">Password:</label>
+                
+                    <div className="row">
+                        <div className="label">
+                            <label htmlFor="password">Password:</label>
+                        </div>
+                        <input type="password" name="password" id="password" placeholder="Enter Password" onChange={this.handleChange} required/>
                     </div>
-                    <input type="password" name="password" id="password" placeholder="Enter Password" onChange={this.handleChange} required/>
-                </div>
 
-                <div className="row">
-                    <input type="submit" value="Register"></input>
-                </div>
+                    <div className="row">
+                        <input type="submit" value="Register"></input>
+                    </div>
 
-                <div>
-                    <p>Already have an account? <Link to="/login">Login</Link></p>
-                </div>
+                    <div>
+                        <p>Already have an account? <Link to="/login">Login</Link></p>
+                    </div>
 
 
-            </form>
-        </div> );
+                </form>
+            </div>
+        </div> 
+        );
     }
 }
  
