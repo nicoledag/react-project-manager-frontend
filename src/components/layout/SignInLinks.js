@@ -14,10 +14,8 @@ import { withRouter } from 'react-router'
             return (
                 <nav className="my-navbar">
                    <li><NavLink to="/" className="my-nav-links products-desktop">Product Categories</NavLink></li> 
-                    {/* <li><NavLink to="/Wishlist" className="my-nav-links products-desktop">Wish List</NavLink></li> */}
 
                     <ul className="main-nav" id="js-menu">
-
                     <div className="dropdown">
                             <button className="dropbtn">+<FontAwesomeIcon icon={faCaretDown}/></button>
                             <div className="dropdown-content">
