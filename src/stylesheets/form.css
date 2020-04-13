@@ -7,8 +7,10 @@
     width: 400px;
     margin: 0 auto;
     margin-top: 80px;
+    margin-bottom: 80px;
     border: solid black 1px;
     background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   }
   
@@ -23,7 +25,9 @@
   
   input[type=submit] {
     /* background-color: #4CAF50; */
-    background-color: RGB(0, 255, 244);
+    /* background-color: RGB(0, 255, 244); */
+    /* background-color: RGB(137, 237, 255); */
+    background-color: #007aff;
     color: black;
     font-size: 1rem;
     padding: 12px 20px;
@@ -34,7 +38,8 @@
   }
   
   input[type=submit]:hover {
-    background-color: #007aff;
+    /* background-color: #007aff; */
+    background-color: RGB(137, 237, 255);
     /* background-color: #45a049; */
   }
   
@@ -46,10 +51,10 @@
     margin-bottom: 15px;
   }
   
-  /* .subheader {
+  .subheader {
     background-color: RGB(11, 165, 161);
     height: 40px;
-  } */
+  }
 
   .middle-container h1, p {
     margin-top: 10px;
@@ -58,17 +63,17 @@
   @media screen and (min-width: 768px) {
 
 
-  /* input[type=submit] {
+  input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  } */
+  } 
   
-  /* .row::after {
+  .row::after {
     content: "";
     clear: both;
     display: table;
-  } */
+  }
 
 
 }
