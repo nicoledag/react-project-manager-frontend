@@ -6,8 +6,9 @@
     height: auto;
     width: 400px;
     margin: 0 auto;
-    margin-top: 40px;
-    border: solid black 1px
+    margin-top: 80px;
+    border: solid black 1px;
+    background-color: white;
 
   }
   
@@ -33,7 +34,7 @@
   }
   
   input[type=submit]:hover {
-    background-color: RGB(11, 165, 161);
+    background-color: #007aff;
     /* background-color: #45a049; */
   }
   

@@ -1,12 +1,12 @@
 .my-navbar {
     font-size: 18px;
     padding: 12px 16px;
-    background-color: RGB(31, 39, 52);
+    background-color: RGB(0, 25, 61);
   }
   
   .my-nav-links {
     text-decoration: none;
-    color: RGB(0, 255, 242);
+    color: white;
     
   }
   
@@ -17,11 +17,14 @@
   .logo {
     text-decoration: none;
     font-size: 1.5rem;
-    color: RGB(0, 255, 242);
+    /* color: RGB(0, 255, 255); */
+    color: white;
   }
   .logo:hover {
-    color: white;
+    color: RGB(105, 218, 243);
     text-decoration: none;
+    /* background-color: RGB(105, 218, 243); */
+    /* background-color: RGB(0, 255, 248); */
   }
   
   .main-nav {
@@ -47,11 +50,11 @@
     right: 20px;
     cursor: pointer;
     font-size: 24px;
-    color: RGB(0, 255, 242);
+    color: white;
   }
   
   .my-navbar-toggle:hover {
-    color: white;
+    color: RGB(105, 218, 243);
   }
   
   .active {
@@ -62,7 +65,7 @@
     font-size: 18px;    
     border: none;
     outline: none;
-    color: RGB(0, 255, 242);
+    color: white;
     background-color: inherit;
     font-family: inherit;
     margin-top: 20px;
@@ -138,7 +141,7 @@
   .dropdown .dropbtn { 
     border: none;
     outline: none;
-    color: RGB(011, 255, 242);
+    color: white;
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
@@ -147,7 +150,7 @@
   
   .dropdown-content {
     position: absolute;
-    background-color: RGB(31, 39, 52);
+    background-color: RGB(0, 25, 61);
     min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -159,7 +162,7 @@
   }
   
   .dropbtn:hover {
-    color: white;
+    color: RGB(105, 218, 243)
   }
   
   .dropdown-content li:hover {
