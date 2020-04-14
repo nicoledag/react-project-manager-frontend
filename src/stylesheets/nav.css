@@ -75,17 +75,17 @@
     display: none;
   }
   
-  /* .dropdown-content li:hover {
+  .dropdown-content li:hover {
     padding: 8px;
-    
-  } */
+    background-color: #007aff;
+  } 
   
   .dropdown:hover .dropdown-content {
     display: block;
   }
   
   .my-nav-links.products-desktop:hover {
-    color: white;
+    color: RGB(105, 218, 243);
     text-decoration: none;
   }
   
@@ -94,7 +94,7 @@
     font-size: 18px;
     border: none;
     background-color: inherit;
-    color: RGB(0, 255, 242);
+    color: white;
   }
   
   .nav-button:hover {
@@ -166,7 +166,8 @@
   }
   
   .dropdown-content li:hover {
-    background-color: RGB(197, 198, 200)
+    /* background-color: RGB(197, 198, 200) */
+    background-color: #007aff;
   }
   
   
