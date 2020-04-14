@@ -17,5 +17,11 @@ class ClientsContainer extends Component {
           );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        clients: state.clientReducer
+    }
+}
  
 export default connect(mapStateToProps, {fetchClients}) (ClientsContainer);

@@ -5,6 +5,7 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import { getCurrentUser } from './actions/currentUser'
 import DashboardContainer from './containers/DashboardContainer'
+import ClientsContainer from './containers/ClientsContainer'
 import Navbar from './components/layout/Navbar'
 
 class App extends Component {
@@ -28,6 +29,8 @@ class App extends Component {
           <Route exact path='/' component={DashboardContainer} />
           <Route path='/login' component={Login}/>
           <Route path='/signup' component={Register}/>
+
+          <Route exact path='/clients' component={ClientsContainer} />
 
       </Switch>
     </div> );
