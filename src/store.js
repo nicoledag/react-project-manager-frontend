@@ -4,6 +4,7 @@ import currentUser from './reducers/currentUser'
 
 const reducer = combineReducers ({
     currentUser,
+    client,
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
