@@ -1,5 +1,6 @@
 
-export const setClients = () => {
+export const setClients = clients => {
+  // debugger;
     return {
         type: "FETCH_CLIENTS",
         clients
@@ -10,7 +11,6 @@ export const setClients = () => {
 export const fetchClients = () => {
     return dispatch => {
         return fetch("http://localhost:3001/api/v1/clients", {
-            // Need to allow credientals to get current user businesses.
             // credentials: "include",
             method: "GET",
             headers: {
