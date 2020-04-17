@@ -7,6 +7,7 @@ import { getCurrentUser } from './actions/currentUser'
 import DashboardContainer from './containers/DashboardContainer'
 import ClientsContainer from './containers/ClientsContainer'
 import Navbar from './components/layout/Navbar'
+import Home from './components/Home'
 
 class App extends Component {
 
@@ -26,7 +27,8 @@ class App extends Component {
     <div>
       <Navbar />
       <Switch>
-          <Route exact path='/' component={DashboardContainer} />
+          <Route exact path='/' component={Home}/>
+          <Route exact path='/projects' component={DashboardContainer} />
           <Route path='/login' component={Login}/>
           <Route path='/signup' component={Register}/>
 
