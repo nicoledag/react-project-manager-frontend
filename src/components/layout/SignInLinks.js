@@ -13,7 +13,7 @@ import { withRouter } from 'react-router'
 
             return (
                 <nav className="my-navbar">
-                   <li><NavLink to="/" className="my-nav-links products-desktop">Project Dashboard</NavLink></li> 
+                   <li><NavLink to="/projects" className="my-nav-links products-desktop">Project Dashboard</NavLink></li> 
 
                     <ul className="main-nav" id="js-menu">
                     <div className="dropdown">
@@ -27,7 +27,7 @@ import { withRouter } from 'react-router'
                         <div className="dropdown">
                             <button className="dropbtn">hello {props.currentUser.attributes.username}! <FontAwesomeIcon icon={faCaretDown}/></button>
                             <div className="dropdown-content">
-                            <li><NavLink to="/" className="my-nav-links products-mobile">Product Dashboard</NavLink></li>                            
+                            <li><NavLink to="/projects" className="my-nav-links products-mobile">Product Dashboard</NavLink></li>                            
                             <li><NavLink to="/projects" className="my-nav-links">Open Projects</NavLink></li>
                                 <li><NavLink to="/clients" className="my-nav-links">Clients</NavLink></li> 
                                 <li><button onClick={props.logOut}  className="nav-button">Logout</button></li>
