@@ -4,6 +4,7 @@ import {Route, Switch } from 'react-router-dom'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import { getCurrentUser } from './actions/currentUser'
+import { fetchProjects } from './actions/project'
 import DashboardContainer from './containers/DashboardContainer'
 import ClientsContainer from './containers/ClientsContainer'
 import Navbar from './components/layout/Navbar'
@@ -15,6 +16,8 @@ class App extends Component {
 
   componentDidMount() {
     this.props.getCurrentUser()
+    this.props.fetchProjects()
+
   }
 
   // componentDidMount() {
@@ -24,6 +27,8 @@ class App extends Component {
   // }
 
   render() { 
+    const { projects } = this.props;
+    // console.log(projects)
     return ( 
       
     <div>
@@ -33,7 +38,13 @@ class App extends Component {
           <Route path='/signup' component={Register}/>
           <Route exact path='/' component={Home}/>
           <Route exact path='/projects' component={DashboardContainer} />
-          <Route exact path='/openProjects' component={OpenProjects} />
+
+           <Route exact path='/openProjects' render={props => {
+            return <OpenProjects projects={projects} {...props} />
+           }
+          }/>
+
+          {/* <Route exact path='/openProjects' component={OpenProjects} /> */}
           <Route exact path='/allProjects' component={AllProjects} />
           <Route exact path='/clients' component={ClientsContainer} />
 
@@ -41,5 +52,13 @@ class App extends Component {
     </div> );
   }
 }
+
+const mapStateToProps = (state) => {
+
+  return{
+    projects: state.projectReducer
+  }
+  
+}
  
-export default connect(null, { getCurrentUser } )(App);
+export default connect(mapStateToProps, { getCurrentUser, fetchProjects } )(App);

@@ -18,7 +18,7 @@ class Buttons extends Component {
 
     render() { 
         return ( 
-            <div>
+            <div className="btn">
                 {/* <Button variant="contained">Default</Button> */}
                 {/* <Button onClick={() => this.getOpenProjects(`${this.props}`)} variant="contained" color="primary">
                 Open Projects
@@ -26,13 +26,13 @@ class Buttons extends Component {
                 {/* <Button variant="contained" disabled>
                 Disabled
                 </Button> */}
-                <Link to='/openProjects'>
-                <Button variant="contained" color="primary">
+                <Link to='/openProjects' className="btn_space" >
+                <Button  variant="contained" color="primary">
                    Open Projects
                 </Button>
                 </Link>
 
-                <Link to='/allProjects'>
+                <Link to='/allProjects'className="btn_space" >
                 <Button variant="contained" color="secondary">
                    All Projects
                 </Button>

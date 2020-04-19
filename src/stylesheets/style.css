@@ -22,6 +22,14 @@ body {
 .data-container{
   width: 100%;
   background-color: white;
+  padding: 20px;
+}
+
+.btn {
+  margin: 20px;
+}
+.btn_space {
+  padding-right: 10px;
 }
 
 
@@ -76,7 +84,7 @@ th {
      padding-top: 12px;
      padding-bottom: 12px;
      text-align: left;
-     background-color:#0F2557;
+     /* background-color:#0F2557; */
      /* background-color: #28559A; */
      color: white;
      /* color: black; */
