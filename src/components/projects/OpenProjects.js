@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Buttons from './Buttons'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
   table: {
@@ -25,7 +26,7 @@ const OpenProjects = (props) => {
   console.log("openProject", props)
 
   const projectList = props.projects.projects.map(proj => 
-      createData(`${proj.attributes.name}`, `${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.target_completion_date}`, `${proj.attributes.completion_date}`)
+      createData(<Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>, `${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.target_completion_date}`, `${proj.attributes.completion_date}`)
   )
 
   console.log("projectList",projectList)
