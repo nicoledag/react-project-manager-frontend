@@ -14,8 +14,6 @@ class DashboardContainer extends Component {
         console.log(this.props)
         return ( 
             <div>
-                <h1>Projects</h1>
-                
                 <Projects projectsList={this.props}/>
             </div> 
         );
