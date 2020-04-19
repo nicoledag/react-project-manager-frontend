@@ -46,7 +46,7 @@ import { withRouter } from 'react-router'
     const mapDispatchToProps = (dispatch, props) => {
         return {
             logOut: () => { dispatch(logout()) 
-            props.history.push('/projects');
+            props.history.push('/');
             }
         }
     }
