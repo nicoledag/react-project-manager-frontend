@@ -10,18 +10,19 @@ import Paper from '@material-ui/core/Paper';
 import Buttons from './Buttons'
 import { Link } from 'react-router-dom'
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
-
-function createData(name, desc, client_id, target_completion_date, completion_date) {
-  return { name, desc, client_id, target_completion_date, completion_date };
-}
-
 
 const OpenProjects = (props) => {
+
+  const useStyles = makeStyles({
+    table: {
+      minWidth: 650,
+    },
+  });
+  
+  function createData(name, desc, client_id, target_completion_date, completion_date) {
+    return { name, desc, client_id, target_completion_date, completion_date };
+  }
+  
 
   console.log("openProject", props)
 
@@ -31,10 +32,6 @@ const OpenProjects = (props) => {
 
   console.log("projectList",projectList)
 
-  // const rows = 
-  // [
-  //   `${projectList}`
-  // ];
   
   const classes = useStyles();
 
