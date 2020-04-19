@@ -16,11 +16,11 @@ class DashboardContainer extends Component {
     render() { 
         console.log(this.props)
         return ( 
-            <div className="data-container">
+            <div className="">
                 <div>
+                    <Buttons projectsList={this.props}/>
                     <h2>Welcome</h2>
-                    <Buttons />
-                    <Projects projectsList={this.props}/>
+                    {/* <Projects projectsList={this.props}/> */}
                 </div>
             </div> 
         );
