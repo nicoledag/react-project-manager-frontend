@@ -34,7 +34,7 @@ class Buttons extends Component {
 
                 <Link to='/allProjects'>
                 <Button variant="contained" color="secondary">
-                   Open Projects
+                   All Projects
                 </Button>
                 </Link>
 
