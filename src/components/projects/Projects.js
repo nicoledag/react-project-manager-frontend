@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Project from './Project'
+import AllProjects from './AllProjects'
 import Button from '@material-ui/core/Button';
 
 const Projects = (props) => {
@@ -46,7 +47,7 @@ const Projects = (props) => {
             </Button>
 
             <div>
-                {/* {allProjects} */}
+                <AllProjects />
                 </div>
         </div>
 
