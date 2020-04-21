@@ -4,17 +4,30 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import OpenProjects from './OpenProjects'
 import { Link } from 'react-router-dom'
+import { fetchProjects } from '../../actions/project';
 
 class Buttons extends Component {
     
-    
-
-    getOpenProjects(){
-        console.log('I have been clicked')
-        console.log(this.props)
-        this.props.projectsList.history.push(`/projects`); 
-        // return <OpenProjects />
+    constructor(){
+        super()
+        console.log("state", this.props)
     }
+
+
+    componentDidMount(){
+        this.props.fetchProjects()
+    }
+
+  
+
+    onClick(){
+        console.log('I have been clicked')
+        console.log("onClick", this.props)
+        
+    }
+
+
+        
 
     render() { 
         return ( 
@@ -27,13 +40,13 @@ class Buttons extends Component {
                 Disabled
                 </Button> */}
                 <Link to='/openProjects' className="btn_space" >
-                <Button  variant="contained" color="primary">
+                <Button onClick={this.onClick(this.props)} variant="contained" color="primary">
                    Open Projects
                 </Button>
                 </Link>
 
                 <Link to='/allProjects'className="btn_space" >
-                <Button variant="contained" color="secondary">
+                <Button variant="contained" color="primary">
                    All Projects
                 </Button>
                 </Link>
@@ -49,4 +62,4 @@ const mapStateToProps = state => {
     }
 }
  
-export default connect(mapStateToProps)(Buttons);
+export default connect(mapStateToProps, {fetchProjects})(Buttons);

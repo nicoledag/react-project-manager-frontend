@@ -23,13 +23,16 @@ body {
   width: 100%;
   background-color: white;
   padding: 20px;
+  margin-top: 50px;
 }
 
 .btn {
   margin: 20px;
+
 }
 .btn_space {
   padding-right: 10px;
+  
 }
 
 

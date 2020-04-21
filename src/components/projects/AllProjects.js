@@ -5,7 +5,7 @@ const AllProjects = () => {
 
     return(
         <div>
-            <Buttons />
+            {/* <Buttons /> */}
             <h1>All Projects</h1>
              
         </div>

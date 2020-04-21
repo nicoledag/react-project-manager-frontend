@@ -24,13 +24,13 @@ const OpenProjects = (props) => {
   }
   
 
-  console.log("openProject", props)
+  // console.log("openProject", props)
 
   const projectList = props.projects.projects.map(proj => 
-      createData(<Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>, `${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.target_completion_date}`, `${proj.attributes.completion_date}`)
+      createData(<Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>, `${proj.attributes.desc}`, `${proj.attributes.client_id}`, new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
   )
 
-  console.log("projectList",projectList)
+  // console.log("projectList",projectList)
 
   
   const classes = useStyles();
@@ -53,6 +53,7 @@ const OpenProjects = (props) => {
         </TableHead>
         <TableBody>
           {projectList.map((row) => (
+
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
                 {row.name}

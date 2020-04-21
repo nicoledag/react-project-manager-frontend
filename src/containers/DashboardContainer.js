@@ -19,14 +19,16 @@ class DashboardContainer extends Component {
 
         const { loggedIn } = this.props;
         if(!loggedIn){
-            return <Redirect to="/login" />
+            return <Redirect to="/" />
         }
 
         console.log(this.props)
         return ( 
             <div className="">
                 <div>
-                    <Buttons projectsList={this.props}/>
+                    <Projects projectsList={this.props}/>
+                    {/* <Buttons projectsList={this.props}/> */}
+
                     <h2>Welcome</h2>
                     {/* <Projects projectsList={this.props}/> */}
                 </div>

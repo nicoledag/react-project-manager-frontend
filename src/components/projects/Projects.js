@@ -2,12 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Project from './Project'
+import Button from '@material-ui/core/Button';
 
 const Projects = (props) => {
 
     const { loggedIn } = props;
     // console.log("loggedIn", loggedIn)
-    if (!loggedIn) return <Redirect to='/' />
+    // if (!loggedIn) return <Redirect to='/' />
 
         // console.log("projects props", props)
 
@@ -33,8 +34,20 @@ const Projects = (props) => {
     console.log("allProjects", allProjects)
     return ( 
         <div className="container">
-            <h2>All Projects</h2>
-            {allProjects}
+            
+            <Button variant="contained" color="primary">
+                   Open Projects
+            </Button>
+            <Button variant="contained" color="primary">
+                   Recently Saved Projects
+            </Button>
+            <Button variant="contained" color="primary">
+                   All Projects
+            </Button>
+
+            <div>
+                {/* {allProjects} */}
+                </div>
         </div>
 
         );
