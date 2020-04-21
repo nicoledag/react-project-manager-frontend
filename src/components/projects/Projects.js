@@ -8,7 +8,7 @@ const Projects = (props) => {
 
     const { loggedIn } = props;
     // console.log("loggedIn", loggedIn)
-    // if (!loggedIn) return <Redirect to='/' />
+    if (!loggedIn) return <Redirect to='/' />
 
         // console.log("projects props", props)
 
