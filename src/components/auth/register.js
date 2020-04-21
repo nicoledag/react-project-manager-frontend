@@ -34,7 +34,7 @@ class Register extends Component {
     render() { 
 
         const { loggedIn } = this.props;
-        if (loggedIn) return <Redirect to='/allProjects' />
+        if (loggedIn) return <Redirect to='/projects' />
 
         return ( 
             <div className="container-form">
