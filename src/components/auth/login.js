@@ -32,7 +32,7 @@ class Login extends Component {
 
     render() { 
         const { loggedIn } = this.props;
-        if (loggedIn) return <Redirect to='/openProjects' />
+        if (loggedIn) return <Redirect to='/' />
         return (
       
             <div className="container-form">
