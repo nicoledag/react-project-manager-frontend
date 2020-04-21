@@ -9,6 +9,8 @@ import DashboardContainer from './containers/DashboardContainer'
 import ClientsContainer from './containers/ClientsContainer'
 import Navbar from './components/layout/Navbar'
 import Home from './containers/Home'
+// import OpenProjects from './components/projects/OpenProjects.js'
+// import AllProjects from './components/projects/AllProjects.js'
 
 class App extends Component {
 
@@ -34,17 +36,17 @@ class App extends Component {
       <Switch>
           <Route path='/login' component={Login}/>
           <Route path='/signup' component={Register}/>
-          {/* <Route exact path='/' component={Home}/> */}
-          {/* <Route exact path='/projects' component={DashboardContainer} /> */}
+          <Route exact path='/projects' component={DashboardContainer} />
 
-         <Route path='/' render={props => {
+
+         <Route exact path='/' render={props => {
             return <Home projects={projects} {...props} />
            }
           }/>
 
-          {/* <Route exact path='/openProjects' component={OpenProjects} /> */}
-          {/* <Route path='/allProjects' component={AllProjects} /> */} */}
-          <Route exact path='/clients' component={ClientsContainer} />
+        <Route exact path='/clients' component={ClientsContainer} />
+
+
 
       </Switch>
     </div> );

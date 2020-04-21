@@ -16,20 +16,17 @@ class DashboardContainer extends Component {
 
     render() { 
 
-        const { loggedIn } = this.props;
-        if(!loggedIn){
-            return <Redirect to="/" />
-        }
+        // const { loggedIn } = this.props;
+        // if(!loggedIn){
+        //     return <Redirect to="/" />
+        // }
 
         console.log(this.props)
         return ( 
             <div className="">
                 <div>
+                    <h2>Projects</h2>
                     <Projects projectsList={this.props}/>
-                    {/* <Buttons projectsList={this.props}/> */}
-
-                    <h2>Welcome</h2>
-                    {/* <Projects projectsList={this.props}/> */}
                 </div>
             </div> 
         );
