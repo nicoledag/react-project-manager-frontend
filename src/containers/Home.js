@@ -19,7 +19,7 @@ class Home extends Component {
         return ( 
             <div className="">
                 <div>
-                    <h2>Welcome to Project Dashboard</h2>
+                    {/* <h2>Welcome to Project Dashboard</h2> */}
                     <Projects projectsList={this.props}/>
                 </div>
             </div> 

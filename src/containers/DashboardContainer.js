@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import { fetchProjects } from "../actions/project.js"
 import Projects from '../components/projects/Projects.js'
 import { Redirect } from 'react-router-dom'
-import Buttons from '../components/projects/Buttons.js'
 
 
 class DashboardContainer extends Component {
