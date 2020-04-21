@@ -36,13 +36,14 @@ class App extends Component {
       <Switch>
           <Route path='/login' component={Login}/>
           <Route path='/signup' component={Register}/>
-          <Route exact path='/projects' component={DashboardContainer} />
-
 
          <Route exact path='/' render={props => {
             return <Home projects={projects} {...props} />
            }
           }/>
+
+        <Route exact path='/projects' component={DashboardContainer} />
+
 
         <Route exact path='/clients' component={ClientsContainer} />
 
