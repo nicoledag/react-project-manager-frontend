@@ -24,8 +24,9 @@ const AllProjects = (props) => {
     return { name, desc, client_id, target_completion_date, completion_date };
   }
   
+  //   TO DO: NEED TO SORT ALL PROJECTS
 
-  console.log("allProject", props)
+//   console.log("allProject", props)
 
   const projectList = props.projects.projects.map(proj => 
       createData(<Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>, `${proj.attributes.desc}`, `${proj.attributes.client_id}`, new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
