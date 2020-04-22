@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Project from './Project'
 import AllProjects from './AllProjects'
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 
 
 class Projects extends Component {
@@ -44,19 +44,19 @@ class Projects extends Component {
             <div className="main">
                 <div className="btn_container">
                     <div className="item">
-                        <Button variant="contained" color="primary">
+                        <button className="button">
                             Open Projects
-                        </Button>
+                        </button>
                     </div>
                     <div className="item">
-                        <Button variant="contained" color="primary">
+                        <button className="button">
                             Recently Saved Projects
-                        </Button>
+                        </button>
                     </div>
                     <div className="item">
-                        <Button id="btn_style" onClick={() => this.handleClick(this.props)} variant="contained" color="primary">
+                        <button id="btn_style" className="button" onClick={() => this.handleClick(this.props)} >
                             <div>All Projects</div>
-                        </Button>
+                        </button>
                     </div>
                 </div>
 
