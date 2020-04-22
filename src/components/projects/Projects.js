@@ -18,15 +18,17 @@ class Projects extends Component {
         console.log("handleClick props", this.props) 
         console.log("I have been clicked")
         let allProjects = document.getElementById('all_projects');
-        let buttonStyle = document.getElementById('btn_style');
+        let buttonStyle = document.getElementById('button');
 
 
         if(allProjects.className === "open"){
             //take data off screen
             allProjects.className = ""
+          
         }else {
             allProjects.className = "open"
             //show data on screen
+   
         }
 
         // .style.display = 'block'
