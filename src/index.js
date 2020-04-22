@@ -8,6 +8,7 @@ import store from './store.js'
 import './stylesheets/nav.css';
 import './stylesheets/style.css';
 import './stylesheets/form.css';
+import './stylesheets/projects.css';
 
 
 
