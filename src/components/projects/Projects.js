@@ -43,16 +43,21 @@ class Projects extends Component {
         return ( 
             <div className="main">
                 <div className="btn_container">
-                
-                    <Button variant="contained" color="primary">
-                        Open Projects
-                    </Button>
-                    <Button variant="contained" color="primary">
-                        Recently Saved Projects
-                    </Button>
-                    <Button id="btn_style" onClick={() => this.handleClick(this.props)} variant="contained" color="primary">
-                        <div>All Projects</div>
-                    </Button>
+                    <div className="item">
+                        <Button variant="contained" color="primary">
+                            Open Projects
+                        </Button>
+                    </div>
+                    <div className="item">
+                        <Button variant="contained" color="primary">
+                            Recently Saved Projects
+                        </Button>
+                    </div>
+                    <div className="item">
+                        <Button id="btn_style" onClick={() => this.handleClick(this.props)} variant="contained" color="primary">
+                            <div>All Projects</div>
+                        </Button>
+                    </div>
                 </div>
 
                 <div className="projects">
