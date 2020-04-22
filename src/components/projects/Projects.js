@@ -9,29 +9,32 @@ import Button from '@material-ui/core/Button';
 class Projects extends Component {
     state = { 
         
-        constructor(props)
+  
     }
-    
+
+
     handleClick(){
 
         console.log("handleClick props", this.props) 
         console.log("I have been clicked")
-        // let allProjects = document.getElementById('all_projects');
-        // let buttonStyle = document.getElementById('btn_style');
+        let allProjects = document.getElementById('all_projects');
+        let buttonStyle = document.getElementById('btn_style');
 
 
-        // if(allProjects.ClassName === "open"){
-        //     //take data off screen
-        //     allProjects.className = ""
-        // }else {
-        //     allProjects.className = "open"
-        //     //show data on screen
-        // }
+        if(allProjects.className === "open"){
+            //take data off screen
+            allProjects.className = ""
+        }else {
+            allProjects.className = "open"
+            //show data on screen
+        }
 
         // .style.display = 'block'
     }
 
     render() { 
+
+        const { projects } = this.props;
 
         const { loggedIn } = this.props;
         // console.log("loggedIn", loggedIn)
@@ -47,7 +50,7 @@ class Projects extends Component {
                     <Button variant="contained" color="primary">
                         Recently Saved Projects
                     </Button>
-                    <Button id="btn_style" onClick={this.handleClick} variant="contained" color="primary">
+                    <Button id="btn_style" onClick={() => this.handleClick(this.props)} variant="contained" color="primary">
                         <div>All Projects</div>
                     </Button>
                 </div>
@@ -76,10 +79,11 @@ class Projects extends Component {
     }
 }
  
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = ({ currentUser }, state) => {
     return {
         currentUser,
-        loggedIn: !!currentUser
+        loggedIn: !!currentUser,
+        projects: state.projectReducer,
     }
 }
  
