@@ -1,3 +1,7 @@
 #all_projects {
     display: none;
 }
+
+#all_projects.open {
+    display: block;
+}
