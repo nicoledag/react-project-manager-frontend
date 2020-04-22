@@ -25,7 +25,7 @@ class DashboardContainer extends Component {
         return ( 
             <div className="">
                 <div>
-                    <h2>Projects</h2>
+                    {/* <h2>Projects</h2> */}
                     <Projects projectsList={this.props}/>
                 </div>
             </div> 
