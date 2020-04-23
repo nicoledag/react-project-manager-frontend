@@ -38,7 +38,9 @@ const AllProjects = (props) => {
   const classes = useStyles();
 
   return (
-    <div className="data-container">
+    <div className="data_container">
+        <h2>ALL PROJECTS</h2>
+        
     <TableContainer component={Paper}>
 
       <Table className={classes.table} aria-label="simple table" stickyHeader aria-label="sticky table">

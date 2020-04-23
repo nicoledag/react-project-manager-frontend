@@ -19,11 +19,20 @@ body {
   background-image: linear-gradient(#0f1f5b,#007aff, #007aff, #0086ff, #0192ff, #029cff, #029cff, #23acfc, #3fb5ff, #5bc6fe, #74d5ff, #83defd, #8ee5ff, #9fecfe, #bcf5ff, #bdf6ff);
 }
 
-.data-container{
+.data_container{
   width: 100%;
   background-color: white;
   padding: 20px;
   margin-top: 35px;
+
+}
+
+.data_container h2{
+ font-size: 20px;
+  margin-left: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: center;
 }
 
 .button {
