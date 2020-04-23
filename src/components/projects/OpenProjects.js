@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 
 
 
-const AllProjects = (props) => {
+const OpenProjects = (props) => {
 
   const useStyles = makeStyles({
     table: {
@@ -26,7 +26,7 @@ const AllProjects = (props) => {
   
   //   TO DO: NEED TO SORT ALL PROJECTS
 
-  // console.log("allProject", props)
+  console.log("openProject", props)
 
   const clientName = props ? props.clients.clients.map(client => {
     return `${client.attributes.name}`
@@ -34,17 +34,29 @@ const AllProjects = (props) => {
   ) : null
     
 
-  // console.log("clientName", clientName)
+//   console.log("clientName", clientName)
 
-    const sortedProjects = props ? props.projects.projects.sort(function(a,b){
-        let dateA = new Date(a.created_at), dateB = new Date(b.created_at);
-        return dateB - dateA;
-      }) : null
+
+const openProjects = props ? props.projects.projects
+            .filter(project => {
+              return project.completion_date === null;
+            })
+            .sort(function(a,b){
+              let dateA = new Date(a.target_completion_date), dateB = new Date(b.target_completion_date);
+              return dateA - dateB;
+            }) 
+            : null
+    console.log("openProjects", openProjects)
+
+    // const sortedProjects = props ? props.projects.projects.sort(function(a,b){
+    //     let dateA = new Date(a.created_at), dateB = new Date(b.created_at);
+    //     return dateB - dateA;
+    //   }) : null
     // console.log("sortedProjects", sortedProjects)
 
-  const projectList = sortedProjects.map(proj => 
-      createData(<Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>, `${proj.attributes.desc}`, `${proj.attributes.client_id}`, new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
-  )
+//   const projectList = sortedProjects.map(proj => 
+//       createData(<Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>, `${proj.attributes.desc}`, `${proj.attributes.client_id}`, new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
+//   )
 
 
   // console.log("projectList",projectList)
@@ -54,7 +66,7 @@ const AllProjects = (props) => {
 
   return (
     <div className="data_container">
-        <h2>ALL PROJECTS</h2>
+        <h2>OPEN PROJECTS</h2>
         
     <TableContainer component={Paper}>
 
@@ -69,7 +81,7 @@ const AllProjects = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {projectList.map((row) => (
+          {/* {projectList.map((row) => (
 
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
@@ -80,7 +92,7 @@ const AllProjects = (props) => {
               <TableCell align="right">{row.target_completion_date}</TableCell>
               <TableCell align="right">{row.completion_date}</TableCell>
             </TableRow>
-          ))}
+          ))} */}
         </TableBody>
       </Table>
     </TableContainer>
@@ -94,4 +106,4 @@ const mapStateToProps = state =>{
         clients: state.clientReducer,
     }
 }
-export default connect(mapStateToProps, null)(AllProjects);
+export default connect(mapStateToProps, null)(OpenProjects);

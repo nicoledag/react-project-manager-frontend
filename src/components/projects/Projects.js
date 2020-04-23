@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Project from './Project'
 import AllProjects from './AllProjects'
+import OpenProjects from './OpenProjects'
 // import Button from '@material-ui/core/Button';
 
 
@@ -12,26 +13,39 @@ class Projects extends Component {
   
     }
 
+    handleClickOpenProjects(){
+        console.log("handleClick props", this.props) 
+        console.log("I have been clicked")
+        let openProjects = document.getElementById('open_projects');
+        let buttonStyle = document.getElementById('btn_style');
+
+        if(openProjects.className === "open"){
+            //take data off screen
+            openProjects.className = ""
+          
+        }else {
+            openProjects.className = "open"
+            //show data on screen
+            // buttonStyle.background.color = "red"
+        }
+    }
+
+
 
     handleClick(){
-
         console.log("handleClick props", this.props) 
         console.log("I have been clicked")
         let allProjects = document.getElementById('all_projects');
-        let buttonStyle = document.getElementById('button');
-
+        let buttonStyle = document.getElementById('btn_style');
 
         if(allProjects.className === "open"){
             //take data off screen
             allProjects.className = ""
-          
         }else {
             allProjects.className = "open"
             //show data on screen
-   
+            // buttonStyle.background.color = "red"
         }
-
-        // .style.display = 'block'
     }
 
     render() { 
@@ -46,8 +60,8 @@ class Projects extends Component {
             <div className="main">
                 <div className="btn_container">
                     <div className="item">
-                        <button className="button">
-                            Open Projects
+                        <button className="button" onClick={() => this.handleClickOpenProjects(this.props)}>
+                            <div>Open Projects</div>
                         </button>
                     </div>
                     <div className="item">
@@ -65,7 +79,7 @@ class Projects extends Component {
                 <div className="projects">
 
                     <div id="open_projects">
-                        {/* <OpenProjects /> */}
+                        <OpenProjects />
                     </div>
 
                     <div id="recently_saved_projects">
@@ -98,26 +112,3 @@ export default connect(mapStateToProps)(Projects);
 
 
 
-
-        // console.log("projects props", props)
-
-    // const sortedProjects = props ? props.projectsList.projects.projects.sort(function(a,b){
-    //     let dateA = new Date(a.created_at), dateB = new Date(b.created_at);
-    //     return dateB - dateA;
-    //   }) : null
-    // console.log("sortedProjects", sortedProjects)
-
-    // let allProjects = sortedProjects ? sortedProjects.map(project => (
-    //     <Project 
-    //         key={project.id}
-    //         id={project.id}
-    //         department={project.attributes.department}
-    //         name={project.attributes.name}
-    //         desc={project.attributes.desc}
-    //         client_id={project.attributes.client_id}
-    //         completion_date={project.attributes.completion_date}
-    //         target_completion_date={project.attributes.target_completion_date}
-    //     />
-    // ))
-    // : null
-    // console.log("allProjects", allProjects)

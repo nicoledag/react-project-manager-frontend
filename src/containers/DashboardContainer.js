@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { fetchProjects } from "../actions/project.js"
+import { fetchClients } from "../actions/client.js"
 import Projects from '../components/projects/Projects.js'
 import { Redirect } from 'react-router-dom'
 
@@ -12,6 +13,7 @@ class DashboardContainer extends Component {
 
     componentDidMount(){
         this.props.fetchProjects()
+        this.props.fetchClients()
     }
 
     render() { 
@@ -41,4 +43,4 @@ const mapStateToProps = (state, {currentUser}) => {
     }
 }
  
-export default connect(mapStateToProps, { fetchProjects })(DashboardContainer);
+export default connect(mapStateToProps, { fetchProjects, fetchClients })(DashboardContainer);
