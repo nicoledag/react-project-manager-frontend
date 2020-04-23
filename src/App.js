@@ -7,10 +7,10 @@ import { getCurrentUser } from './actions/currentUser'
 import { fetchProjects } from './actions/project'
 import DashboardContainer from './containers/DashboardContainer'
 import ClientsContainer from './containers/ClientsContainer'
+import Project from './components/projects/Project'
 import Navbar from './components/layout/Navbar'
 import Home from './containers/Home'
-// import OpenProjects from './components/projects/OpenProjects.js'
-// import AllProjects from './components/projects/AllProjects.js'
+
 
 class App extends Component {
 
@@ -44,6 +44,12 @@ class App extends Component {
           }/>
 
         {/* <Route exact path='/projects' component={DashboardContainer} /> */}
+        <Route exact path='/projects/:id' render={props => {
+            const project = projects.projects.find(project => project.id === props.match.params.id)
+            console.log("app business props", project)
+            return <Project project={project} {...props} />
+           }
+          }/>
 
 
         <Route exact path='/clients' component={ClientsContainer} />
