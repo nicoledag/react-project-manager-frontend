@@ -14,9 +14,9 @@ const Project = (props) => {
     console.log("client", client)
 
     return (
-        <div className="project_page">
+        <div className="data_container">
           <h2>Project Page</h2>
-          <li className="project-text"> <b className="titlespacing">Name:</b> {props.project ? props.project.attributes.name : null}</li>
+          <li className="project-text"> <b className="titlespacing">Project Name:</b> {props.project ? props.project.attributes.name : null}</li>
           <li className="project-text"> <b className="titlespacing">Description:</b> {props.project ? props.project.attributes.desc : null}</li>
           <li className="project-text"> <b className="titlespacing">Client:</b> {client ? client.attributes.name : null}</li>
           <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
