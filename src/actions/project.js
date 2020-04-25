@@ -27,3 +27,7 @@ export const myProjects = projects => {
             } )
       }
   }
+
+  export const createProject = () => {
+    console.log("IN ACTION")
+  }
