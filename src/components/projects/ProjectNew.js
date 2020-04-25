@@ -43,9 +43,9 @@ class ProjectNew extends Component {
 
                         <div className="row"> 
                             <div className="label">    
-                                <label htmlFor="description">Description:  </label>
+                                <label htmlFor="desc">Description:  </label>
                             </div>  
-                                <input type="text" name="description" id="description" placeholder="Enter Description" onChange={this.handleChange} required/>
+                                <input type="text" name="desc" id="desc" placeholder="Enter Description" onChange={this.handleChange} required/>
                         </div>
                         
                         <div className="row"> 
