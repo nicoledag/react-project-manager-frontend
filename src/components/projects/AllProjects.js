@@ -26,15 +26,14 @@ const AllProjects = (props) => {
   
   //   TO DO: NEED TO SORT ALL PROJECTS
 
-  // console.log("allProject", props)
+  console.log("allProject", props)
 
   const clientName = props ? props.clients.clients.map(client => {
-    return `${client.attributes.name}`
-  } 
+    return `${client.attributes.name}, ${client.id}`
+  }
   ) : null
     
-
-  // console.log("clientName", clientName)
+  console.log("clientName", clientName)
 
     const sortedProjects = props ? props.projects.projects.sort(function(a,b){
         let dateA = new Date(a.created_at), dateB = new Date(b.created_at);
@@ -46,10 +45,6 @@ const AllProjects = (props) => {
       createData(<Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>, `${proj.attributes.desc}`, `${proj.attributes.client_id}`, new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
   )
 
-
-  // console.log("projectList",projectList)
-
-  
   const classes = useStyles();
 
   return (
@@ -70,7 +65,7 @@ const AllProjects = (props) => {
         </TableHead>
         <TableBody>
           {projectList.map((row) => (
-
+              
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
                 {row.name}

@@ -23,3 +23,11 @@
     margin-top: 30px;
 }
 
+.project_page {
+    margin: 20px;
+    background-color: white;
+    padding: 20px;
+}
+.project_page li {
+    list-style-type: none;
+}
