@@ -23,8 +23,7 @@ const AllProjects = (props) => {
   function createData(name, desc, client_id, target_completion_date, completion_date) {
     return { name, desc, client_id, target_completion_date, completion_date };
   }
-  
-  console.log("allProject", props)
+  // console.log("allProject", props)
 
     let clientName = ''
 
@@ -58,10 +57,10 @@ const AllProjects = (props) => {
         </TableHead>
         <TableBody>
           {projectList.map(row => (
-              console.log("row", row),
-              console.log("prop", props),
+              // console.log("row", row),
+              // console.log("prop", props),
               clientName = props.clients.clients ? props.clients.clients.filter(client => client.id === row.client_id)[0] : null,
-              console.log("client", clientName),
+              // console.log("client", clientName),
           
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
