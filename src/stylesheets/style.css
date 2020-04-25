@@ -24,8 +24,6 @@ body {
   background-color: white;
   padding: 20px;
   margin-top: 35px;
-
-
 }
 
 .data_container h2{
@@ -75,38 +73,6 @@ body {
 .btn_space {
   padding-right: 10px;
 }
-
-
-/* --- Index Table --- */
-
-/* #table {
-  // font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-
-
-  td, th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-
-  tr:hover {background-color: #ddd;}
-
-th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #fcff42;
-  color: black;
-}
-
-}
-
-.scrollit {
-    overflow:scroll;
-    height: 300px;
-} */
-
 
 /* --- JS Table --- */
 
