@@ -24,16 +24,9 @@ const AllProjects = (props) => {
     return { name, desc, client_id, target_completion_date, completion_date };
   }
   
-  //   TO DO: NEED TO SORT ALL PROJECTS
-
   console.log("allProject", props)
 
-  const clientName = props ? props.clients.clients.map(client => {
-    return `${client.attributes.name}, ${client.id}`
-  }
-  ) : null
-    
-  console.log("clientName", clientName)
+    let clientName = ''
 
     const sortedProjects = props ? props.projects.projects.sort(function(a,b){
         let dateA = new Date(a.created_at), dateB = new Date(b.created_at);
@@ -64,14 +57,18 @@ const AllProjects = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {projectList.map((row) => (
-              
+          {projectList.map(row => (
+              console.log("row", row),
+              console.log("prop", props),
+              clientName = props.clients.clients ? props.clients.clients.filter(client => client.id === row.client_id)[0] : null,
+              console.log("client", clientName),
+          
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
               <TableCell align="right">{row.desc}</TableCell>
-              <TableCell align="right">{row.client_id}</TableCell>
+              <TableCell align="right">{clientName.attributes.name}</TableCell>
               <TableCell align="right">{row.target_completion_date}</TableCell>
               <TableCell align="right">{row.completion_date}</TableCell>
             </TableRow>

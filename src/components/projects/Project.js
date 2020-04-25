@@ -6,6 +6,8 @@ const Project = (props) => {
 
     console.log("project", props)
 
+    
+
   // console.log(props.clients.clients)
   // console.log(props.project.attributes.client_id)
     let client = props.clients.clients ? props.clients.clients.filter(client => parseInt(client.id) === props.project.attributes.client_id)[0] : null
