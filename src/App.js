@@ -52,7 +52,7 @@ class App extends Component {
        
         <Route exact path='/projects/:id' render={props => {
             const project = projects.projects.find(project => project.id === props.match.params.id)
-            console.log("app business props", project)
+          
             return <Project project={project} {...props} />
            }
           }/>
