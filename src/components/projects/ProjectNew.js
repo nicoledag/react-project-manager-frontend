@@ -54,9 +54,11 @@ class ProjectNew extends Component {
 
                         <div className="row"> 
                             <div className="label">    
-                                <label htmlFor="budget">Budget:  </label>
+                                <label htmlFor="budget">Budget: $ </label>
                             </div>  
+                            <div className="dollar_sign">
                                 <input type="text" name="budget" id="budget" placeholder="Enter Budget" onChange={this.handleChange} required/>
+                            </div>
                         </div>
 
                         <div className="row"> 

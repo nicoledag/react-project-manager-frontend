@@ -27,3 +27,11 @@
     list-style-type: none;
     padding: 5px;
 }
+
+/* .dollar_sign:before {
+    content: '$';
+    position: absolute;
+    top: 50;
+    left: 200px; 
+    z-index: 1; 
+} */
