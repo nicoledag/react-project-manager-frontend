@@ -20,7 +20,7 @@ const OpenProjects = (props) => {
     },
   });
   
-  function createData(name, desc, client_id, target_completion_date, completion_date) {
+  function createData(name, desc, client_id, budget, quantity, end_destination, target_completion_date, completion_date) {
     return { name, desc, client_id, target_completion_date, completion_date };
   }
   
@@ -76,6 +76,9 @@ const openProjects = props ? props.projects.projects
             <TableCell>Project Name</TableCell>
             <TableCell align="right">Description</TableCell>
             <TableCell align="right">Client</TableCell>
+            <TableCell align="right">Budget</TableCell>
+            <TableCell align="right">Quantity</TableCell>
+            <TableCell align="right">End Destination</TableCell>
             <TableCell align="right">Target Completion Date</TableCell>
             <TableCell align="right">Completion Date</TableCell>
           </TableRow>

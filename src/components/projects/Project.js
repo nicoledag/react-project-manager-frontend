@@ -28,6 +28,12 @@ const Project = (props) => {
           <li className="project-text"> <b className="titlespacing">Project Name:</b> {props.project ? props.project.attributes.name : null}</li>
           <li className="project-text"> <b className="titlespacing">Description:</b> {props.project ? props.project.attributes.desc : null}</li>
           <li className="project-text"> <b className="titlespacing">Client:</b> {client ? client.attributes.name : null}</li>
+         
+          <li className="project-text"> <b className="titlespacing">Budget:</b> {props.project ? props.project.attributes.budget : null}</li>
+          <li className="project-text"> <b className="titlespacing">Quantity:</b> {props.project ? props.project.attributes.quantity : null}</li>
+          <li className="project-text"> <b className="titlespacing">End Destination:</b> {props.project ? props.project.attributes.end_destination : null}</li>
+
+          
           <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
           <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project ? props.project.attributes.completion_date : null}</li>
           <br></br>

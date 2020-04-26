@@ -9,6 +9,9 @@ class ProjectNew extends Component {
             name: '',
             desc: '',
             client_id: '',
+            budget: '',
+            quantity: '',
+            end_destination: '',
             target_completion_date: '',
             completion_date: '',
         }
@@ -48,6 +51,28 @@ class ProjectNew extends Component {
                                 <input type="text" name="desc" id="desc" placeholder="Enter Description" onChange={this.handleChange} required/>
                         </div>
                         
+
+                        <div className="row"> 
+                            <div className="label">    
+                                <label htmlFor="budget">Budget:  </label>
+                            </div>  
+                                <input type="text" name="budget" id="budget" placeholder="Enter Budget" onChange={this.handleChange} required/>
+                        </div>
+
+                        <div className="row"> 
+                            <div className="label">    
+                                <label htmlFor="quantity">Quantity:  </label>
+                            </div>  
+                                <input type="text" name="quantity" id="quantity" placeholder="Enter Quantity" onChange={this.handleChange} required/>
+                        </div>
+                        
+                        <div className="row"> 
+                            <div className="label">    
+                                <label htmlFor="end_destination">End Destination:  </label>
+                            </div>  
+                                <input type="text" name="end_destination" id="end_destination" placeholder="Enter Desination" onChange={this.handleChange} required/>
+                        </div>
+
                         <div className="row"> 
                     <div className="label">   
                         <label htmlFor="name">Client:  Required  </label>
