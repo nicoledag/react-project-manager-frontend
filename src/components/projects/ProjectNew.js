@@ -27,7 +27,18 @@ class ProjectNew extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state)
+        // console.log(this.state)
+        this.CreateProject(this.state)
+        this.setState({
+            name: '',
+            desc: '',
+            client_id: '',
+            budget: '',
+            quantity: '',
+            end_destination: '',
+            target_completion_date: '',
+            completion_date: '',
+        })
     }
 
     render() { 
