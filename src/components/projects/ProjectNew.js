@@ -28,7 +28,8 @@ class ProjectNew extends Component {
     handleSubmit = e => {
         e.preventDefault();
         // console.log(this.state)
-        this.CreateProject(this.state)
+        this.props.createProject(this.state);
+        this.props.history.push('/projects');
         this.setState({
             name: '',
             desc: '',
