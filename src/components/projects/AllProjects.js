@@ -51,6 +51,9 @@ const AllProjects = (props) => {
             <TableCell>Project Name</TableCell>
             <TableCell align="right">Description</TableCell>
             <TableCell align="right">Client</TableCell>
+            <TableCell align="right">Budget</TableCell>
+            <TableCell align="right">Quantity</TableCell>
+            <TableCell align="right">End Destination</TableCell>
             <TableCell align="right">Target Completion Date</TableCell>
             <TableCell align="right">Completion Date</TableCell>
           </TableRow>
@@ -68,6 +71,9 @@ const AllProjects = (props) => {
               </TableCell>
               <TableCell align="right">{row.desc}</TableCell>
               <TableCell align="right">{clientName.attributes.name}</TableCell>
+              <TableCell align="right">{row.budget}</TableCell>
+              <TableCell align="right">{row.quantity}</TableCell>
+              <TableCell align="right">{row.end_destination}</TableCell>
               <TableCell align="right">{row.target_completion_date}</TableCell>
               <TableCell align="right">{row.completion_date}</TableCell>
             </TableRow>
