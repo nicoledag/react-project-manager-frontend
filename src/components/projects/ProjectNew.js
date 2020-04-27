@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createProject } from '../../actions/project'
+import { Redirect } from 'react-router-dom'
 
 class ProjectNew extends Component {
     constructor(){
@@ -43,6 +44,9 @@ class ProjectNew extends Component {
     }
 
     render() { 
+        const { loggedIn } = this.props;
+        if (!loggedIn) return <Redirect to='/' />
+
         return ( 
             <div className="container-form">
                 <div className="middle-container">
@@ -124,6 +128,7 @@ class ProjectNew extends Component {
 
 const mapStateToProps = state => {
     return {
+        loggedIn: !!state.currentUser,
         clients: state.clientReducer,
     }
 }
