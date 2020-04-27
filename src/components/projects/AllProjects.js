@@ -23,12 +23,24 @@ const AllProjects = (props) => {
   function createData(id, name, desc, client_id, budget, quantity, end_destination, target_completion_date, completion_date) {
     return { id, name, desc, client_id, budget, quantity, end_destination, target_completion_date, completion_date };
   }
-  // console.log("allProject", props)
+  console.log("allProject", props)
+
+  // const openProjects = props ? props.projects.projects
+  //           .filter(project => {
+  //             return project.completion_date === null;
+  //           })
+  //           .sort(function(a,b){
+  //             let dateA = new Date(a.target_completion_date), dateB = new Date(b.target_completion_date);
+  //             return dateA - dateB;
+  //           }) 
+  //           : null
+  //   console.log("openProjects", openProjects)
+
 
     let clientName = ''
 
     const sortedProjects = props ? props.projects.projects.sort(function(a,b){
-        let dateA = new Date(a.created_at), dateB = new Date(b.created_at);
+        let dateA = new Date(a.attributes.created_at), dateB = new Date(b.attributes.created_at);
         return dateB - dateA;
       }) : null
     console.log("sortedProjects", sortedProjects)
@@ -77,7 +89,7 @@ const AllProjects = (props) => {
               <TableCell align="right">{row.quantity}</TableCell>
               <TableCell align="right">{row.end_destination}</TableCell>
               <TableCell align="right">{row.target_completion_date}</TableCell>
-              <TableCell align="right">{row.completion_date}</TableCell>
+              <TableCell align="right">{row.completion_date === "Invalid Date" ? "OPEN" : row.completion_date}</TableCell>
             </TableRow>
           ))}
         </TableBody>

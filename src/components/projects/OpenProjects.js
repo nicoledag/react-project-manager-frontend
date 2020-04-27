@@ -20,33 +20,24 @@ const OpenProjects = (props) => {
     },
   });
   
-  function createData(name, desc, client_id, budget, quantity, end_destination, target_completion_date, completion_date) {
-    return { name, desc, client_id, target_completion_date, completion_date };
+  function createData(id, name, desc, client_id, budget, quantity, end_destination, target_completion_date, completion_date) {
+    return { id, name, desc, client_id, budget, quantity, end_destination, target_completion_date, completion_date };
   }
-  
-  //   TO DO: NEED TO SORT ALL PROJECTS
+  // console.log("allProject", props)
 
-  console.log("openProject", props)
-
-  const clientName = props ? props.clients.clients.map(client => {
-    return `${client.attributes.name}`
-  } 
-  ) : null
-    
-
-//   console.log("clientName", clientName)
-
-
-const openProjects = props ? props.projects.projects
+  const openProjects = props ? props.projects.projects
             .filter(project => {
-              return project.completion_date === null;
+              return project.attributes.completion_date === null;
             })
             .sort(function(a,b){
-              let dateA = new Date(a.target_completion_date), dateB = new Date(b.target_completion_date);
+              let dateA = new Date(a.attributes.target_completion_date), dateB = new Date(b.attributes.target_completion_date);
               return dateA - dateB;
             }) 
             : null
     console.log("openProjects", openProjects)
+
+
+    let clientName = ''
 
     // const sortedProjects = props ? props.projects.projects.sort(function(a,b){
     //     let dateA = new Date(a.created_at), dateB = new Date(b.created_at);
@@ -54,25 +45,24 @@ const openProjects = props ? props.projects.projects
     //   }) : null
     // console.log("sortedProjects", sortedProjects)
 
-//   const projectList = sortedProjects.map(proj => 
-//       createData(<Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>, `${proj.attributes.desc}`, `${proj.attributes.client_id}`, new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
-//   )
+  const openProjectList = openProjects.map(proj => 
+    createData(`${proj.id}`, <Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>,`${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.budget}`, `${proj.attributes.quantity}`, `${proj.attributes.end_destination}`,new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
+  )
 
+  console.log("openProjectList", openProjectList)
 
-  // console.log("projectList",projectList)
-
-  
   const classes = useStyles();
 
   return (
     <div className="data_container">
-        <h2>OPEN PROJECTS</h2>
+        <h2>ALL PROJECTS</h2>
         
     <TableContainer component={Paper}>
 
       <Table className={classes.table} aria-label="simple table" stickyHeader aria-label="sticky table">
         <TableHead>
           <TableRow>
+          <TableCell>Project Id</TableCell>
             <TableCell>Project Name</TableCell>
             <TableCell align="right">Description</TableCell>
             <TableCell align="right">Client</TableCell>
@@ -84,18 +74,24 @@ const openProjects = props ? props.projects.projects
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {projectList.map((row) => (
-
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
+          {openProjectList.map(row => (
+              console.log("row", row),
+              // console.log("prop", props),
+              clientName = props.clients.clients ? props.clients.clients.filter(client => client.id === row.client_id)[0] : null,
+              // console.log("client", clientName),
+          
+            <TableRow key={row.id}>
+              <TableCell component="th" scope="row">{row.id} </TableCell>
+              <TableCell component="th" scope="row">{row.name} </TableCell>
               <TableCell align="right">{row.desc}</TableCell>
-              <TableCell align="right">{row.client_id}</TableCell>
+              <TableCell align="right">{clientName.attributes.name}</TableCell>
+              <TableCell align="right">{row.budget}</TableCell>
+              <TableCell align="right">{row.quantity}</TableCell>
+              <TableCell align="right">{row.end_destination}</TableCell>
               <TableCell align="right">{row.target_completion_date}</TableCell>
-              <TableCell align="right">{row.completion_date}</TableCell>
+              <TableCell align="right">{row.completion_date === "Invalid Date" ? "OPEN" : row.completion_date}</TableCell>
             </TableRow>
-          ))} */}
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
