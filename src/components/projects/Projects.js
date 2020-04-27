@@ -23,16 +23,20 @@ class Projects extends Component {
 
     handeClickRecentlySavedProjects(){
         let recentlySavedProjects = document.getElementById('recently_saved_projects');
-        let buttonStyle = document.getElementById('btn_style');
+        let buttonStyle = document.getElementById('btn_style_recently_saved_projects');
 
         if(recentlySavedProjects.className === "open"){
             //take data off screen
             recentlySavedProjects.className = ""
+            buttonStyle.style.backgroundColor = "#015cdc"
+            buttonStyle.style.color = "white"
+          
           
         }else {
-            recentlySavedProjects.className = "open"
             //show data on screen
-            // buttonStyle.background.color = "red"
+            recentlySavedProjects.className = "open"
+            buttonStyle.style.backgroundColor = "RGB(137, 237, 255)"
+            buttonStyle.style.color = "black"
         }
     }
 
@@ -40,16 +44,19 @@ class Projects extends Component {
         // console.log("handleClick props", this.props) 
         // console.log("I have been clicked")
         let openProjects = document.getElementById('open_projects');
-        let buttonStyle = document.getElementById('btn_style');
+        let buttonStyle = document.getElementById('btn_style_open_projects');
 
         if(openProjects.className === "open"){
             //take data off screen
             openProjects.className = ""
+            buttonStyle.style.backgroundColor = "#015cdc"
+            buttonStyle.style.color = "white"
           
         }else {
-            openProjects.className = "open"
             //show data on screen
-            // buttonStyle.background.color = "red"
+            openProjects.className = "open"
+            buttonStyle.style.backgroundColor = "RGB(137, 237, 255)"
+            buttonStyle.style.color = "black"
         }
     }
 
@@ -57,15 +64,19 @@ class Projects extends Component {
         // console.log("handleClick props", this.props) 
         // console.log("I have been clicked")
         let allProjects = document.getElementById('all_projects');
-        let buttonStyle = document.getElementById('btn_style');
+        let buttonStyle = document.getElementById('btn_style_all_projects');
 
         if(allProjects.className === "open"){
             //take data off screen
             allProjects.className = ""
+            buttonStyle.style.backgroundColor = "#015cdc"
+            buttonStyle.style.color = "white"
+            
         }else {
-            allProjects.className = "open"
             //show data on screen
-            // buttonStyle.background.color = "red"
+            allProjects.className = "open"
+            buttonStyle.style.backgroundColor = "RGB(137, 237, 255)"
+            buttonStyle.style.color = "black"
         }
     }
 
@@ -81,17 +92,17 @@ class Projects extends Component {
             <div className="main">
                 <div className="btn_container">
                     <div className="item">
-                        <button className="button" onClick={() => this.handleClickOpenProjects(this.props)}>
+                        <button id="btn_style_open_projects"className="button" onClick={() => this.handleClickOpenProjects(this.props)}>
                             <div>Open Projects</div>
                         </button>
                     </div>
                     <div className="item">
-                        <button className="button" onClick={() => this.handeClickRecentlySavedProjects(this.props)}>
+                        <button id="btn_style_recently_saved_projects"className="button" onClick={() => this.handeClickRecentlySavedProjects(this.props)}>
                             Recently Saved Projects
                         </button>
                     </div>
                     <div className="item">
-                        <button id="btn_style" className="button" onClick={() => this.handleClickAllProjects(this.props)} >
+                        <button id="btn_style_all_projects" className="button" onClick={() => this.handleClickAllProjects(this.props)} >
                             <div>All Projects</div>
                         </button>
                     </div>
