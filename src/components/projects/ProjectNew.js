@@ -19,7 +19,7 @@ class ProjectNew extends Component {
 
 
     handleChange = e =>{
-        console.log(e.target.value)
+        // console.log(e.target.value)
         this.setState({
             [e.target.id]: e.target.value 
         })
@@ -27,7 +27,7 @@ class ProjectNew extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state)
+        // console.log(this.state)
         this.props.createProject(this.state);
         this.props.history.push('/projects');
         this.setState({

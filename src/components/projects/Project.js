@@ -4,14 +4,13 @@ import { connect } from 'react-redux'
 
 const Project = (props) => {
 
-    console.log("project", props)
+    // console.log("project", props)
 
-    
-
+  
   // console.log(props.clients.clients)
   // console.log(props.project.attributes.client_id)
     let client = props.clients.clients && props.project ? props.clients.clients.filter(client => parseInt(client.id) === props.project.attributes.client_id)[0] : null
-    console.log("client", client)
+    // console.log("client", client)
 
     // ADD CLIENT SORT BY DATE CREATED!!
 

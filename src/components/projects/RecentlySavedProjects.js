@@ -40,7 +40,7 @@ const RecentlySavedProjects = (props) => {
     createData(`${proj.id}`, <Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>,`${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.budget}`, `${proj.attributes.quantity}`, `${proj.attributes.end_destination}`,new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
   )
 
-  console.log("recentlySaved", recentlySavedProjectList)
+  // console.log("recentlySaved", recentlySavedProjectList)
 
   const classes = useStyles();
 
