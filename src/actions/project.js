@@ -9,7 +9,7 @@ export const myProjects = projects => {
   
 
   export const addProject = project => {
-      return{
+      return {
         type: "ADD_PROJECT",
         project
       }

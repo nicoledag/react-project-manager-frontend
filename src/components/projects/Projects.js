@@ -79,7 +79,7 @@ class Projects extends Component {
                 <div className="projects">
 
                     <div id="open_projects">
-                        <OpenProjects />
+                        {/* <OpenProjects /> */}
                     </div>
 
                     <div id="recently_saved_projects">

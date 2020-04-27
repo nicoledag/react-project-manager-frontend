@@ -20,8 +20,8 @@ const AllProjects = (props) => {
     },
   });
   
-  function createData(name, desc, client_id, target_completion_date, completion_date) {
-    return { name, desc, client_id, target_completion_date, completion_date };
+  function createData(id, name, desc, client_id, budget, quantity, end_destination, target_completion_date, completion_date) {
+    return { id, name, desc, client_id, budget, quantity, end_destination, target_completion_date, completion_date };
   }
   // console.log("allProject", props)
 
@@ -31,11 +31,13 @@ const AllProjects = (props) => {
         let dateA = new Date(a.created_at), dateB = new Date(b.created_at);
         return dateB - dateA;
       }) : null
-    // console.log("sortedProjects", sortedProjects)
+    console.log("sortedProjects", sortedProjects)
 
   const projectList = sortedProjects.map(proj => 
-      createData(<Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>, `${proj.attributes.desc}`, `${proj.attributes.client_id}`, new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
+    createData(`${proj.id}`, <Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>,`${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.budget}`, `${proj.attributes.quantity}`, `${proj.attributes.end_destination}`,new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
   )
+
+  console.log("projectList", projectList)
 
   const classes = useStyles();
 
@@ -48,6 +50,7 @@ const AllProjects = (props) => {
       <Table className={classes.table} aria-label="simple table" stickyHeader aria-label="sticky table">
         <TableHead>
           <TableRow>
+          <TableCell>Project Id</TableCell>
             <TableCell>Project Name</TableCell>
             <TableCell align="right">Description</TableCell>
             <TableCell align="right">Client</TableCell>
@@ -60,15 +63,14 @@ const AllProjects = (props) => {
         </TableHead>
         <TableBody>
           {projectList.map(row => (
-              // console.log("row", row),
+              console.log("row", row),
               // console.log("prop", props),
               clientName = props.clients.clients ? props.clients.clients.filter(client => client.id === row.client_id)[0] : null,
               // console.log("client", clientName),
           
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
+            <TableRow key={row.id}>
+              <TableCell component="th" scope="row">{row.id} </TableCell>
+              <TableCell component="th" scope="row">{row.name} </TableCell>
               <TableCell align="right">{row.desc}</TableCell>
               <TableCell align="right">{clientName.attributes.name}</TableCell>
               <TableCell align="right">{row.budget}</TableCell>
