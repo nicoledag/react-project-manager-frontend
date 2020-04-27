@@ -34,32 +34,26 @@ const OpenProjects = (props) => {
               return dateA - dateB;
             }) 
             : null
-    console.log("openProjects", openProjects)
+    // console.log("openProjects", openProjects)
 
 
     let clientName = ''
 
-    // const sortedProjects = props ? props.projects.projects.sort(function(a,b){
-    //     let dateA = new Date(a.created_at), dateB = new Date(b.created_at);
-    //     return dateB - dateA;
-    //   }) : null
-    // console.log("sortedProjects", sortedProjects)
-
   const openProjectList = openProjects.map(proj => 
     createData(`${proj.id}`, <Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>,`${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.budget}`, `${proj.attributes.quantity}`, `${proj.attributes.end_destination}`,new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
   )
-
-  console.log("openProjectList", openProjectList)
+  // console.log("openProjectList", openProjectList)
 
   const classes = useStyles();
 
   return (
     <div className="data_container">
-        <h2>ALL PROJECTS</h2>
+        <h2>OPEN PROJECTS</h2>
         
-    <TableContainer component={Paper}>
+      <Paper className={classes.root}>
+      <TableContainer className={classes.container}>
 
-      <Table className={classes.table} aria-label="simple table" stickyHeader aria-label="sticky table">
+      <Table className={classes.table} stickyHeader aria-label="sticky table">
         <TableHead>
           <TableRow>
           <TableCell>Project Id</TableCell>
@@ -75,7 +69,7 @@ const OpenProjects = (props) => {
         </TableHead>
         <TableBody>
           {openProjectList.map(row => (
-              console.log("row", row),
+              // console.log("row", row),
               // console.log("prop", props),
               clientName = props.clients.clients ? props.clients.clients.filter(client => client.id === row.client_id)[0] : null,
               // console.log("client", clientName),
@@ -84,17 +78,19 @@ const OpenProjects = (props) => {
               <TableCell component="th" scope="row">{row.id} </TableCell>
               <TableCell component="th" scope="row">{row.name} </TableCell>
               <TableCell align="right">{row.desc}</TableCell>
-              <TableCell align="right">{clientName.attributes.name}</TableCell>
+              <TableCell align="right">{clientName.attributes.name ? clientName.attributes.name : null}</TableCell>
               <TableCell align="right">{row.budget}</TableCell>
               <TableCell align="right">{row.quantity}</TableCell>
               <TableCell align="right">{row.end_destination}</TableCell>
               <TableCell align="right">{row.target_completion_date}</TableCell>
               <TableCell align="right">{row.completion_date === "Invalid Date" ? "OPEN" : row.completion_date}</TableCell>
             </TableRow>
-          ))}
+          ))} 
         </TableBody>
       </Table>
     </TableContainer>
+    </Paper>
+
     </div>
   );
 }
