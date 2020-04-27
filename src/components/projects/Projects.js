@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom';
 import Project from './Project'
 import AllProjects from './AllProjects'
 import OpenProjects from './OpenProjects'
+import { fetchProjects } from '../../actions/project'
+import { fetchClients } from '../../actions/client'
 // import Button from '@material-ui/core/Button';
 
 
@@ -11,6 +13,11 @@ class Projects extends Component {
     state = { 
         
   
+    }
+
+    componentDidMount(){
+        this.props.fetchProjects()
+        this.props.fetchClients()
     }
 
     handleClickOpenProjects(){
@@ -79,7 +86,7 @@ class Projects extends Component {
                 <div className="projects">
 
                     <div id="open_projects">
-                        {/* <OpenProjects /> */}
+                        <OpenProjects />
                     </div>
 
                     <div id="recently_saved_projects">
@@ -108,7 +115,7 @@ const mapStateToProps = ({ currentUser }, state) => {
     }
 }
  
-export default connect(mapStateToProps)(Projects);
+export default connect(mapStateToProps, {fetchProjects, fetchClients})(Projects);
 
 
 
