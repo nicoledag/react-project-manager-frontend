@@ -21,9 +21,24 @@ class Projects extends Component {
         this.props.fetchClients()
     }
 
+    handeClickRecentlySavedProjects(){
+        let recentlySavedProjects = document.getElementById('recently_saved_projects');
+        let buttonStyle = document.getElementById('btn_style');
+
+        if(recentlySavedProjects.className === "open"){
+            //take data off screen
+            recentlySavedProjects.className = ""
+          
+        }else {
+            recentlySavedProjects.className = "open"
+            //show data on screen
+            // buttonStyle.background.color = "red"
+        }
+    }
+
     handleClickOpenProjects(){
-        console.log("handleClick props", this.props) 
-        console.log("I have been clicked")
+        // console.log("handleClick props", this.props) 
+        // console.log("I have been clicked")
         let openProjects = document.getElementById('open_projects');
         let buttonStyle = document.getElementById('btn_style');
 
@@ -38,11 +53,9 @@ class Projects extends Component {
         }
     }
 
-
-
     handleClickAllProjects(){
-        console.log("handleClick props", this.props) 
-        console.log("I have been clicked")
+        // console.log("handleClick props", this.props) 
+        // console.log("I have been clicked")
         let allProjects = document.getElementById('all_projects');
         let buttonStyle = document.getElementById('btn_style');
 
@@ -73,7 +86,7 @@ class Projects extends Component {
                         </button>
                     </div>
                     <div className="item">
-                        <button className="button">
+                        <button className="button" onClick={() => this.handeClickRecentlySavedProjects(this.props)}>
                             Recently Saved Projects
                         </button>
                     </div>
