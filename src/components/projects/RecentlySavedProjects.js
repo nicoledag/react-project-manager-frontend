@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 
 
 
-const OpenProjects = (props) => {
+const RecentlySavedProjects = (props) => {
 
   const useStyles = makeStyles({
     root: {
@@ -28,30 +28,25 @@ const OpenProjects = (props) => {
   }
   // console.log("allProject", props)
 
-  const openProjects = props ? props.projects.projects
-            .filter(project => {
-              return project.attributes.completion_date === null;
-            })
-            .sort(function(a,b){
-              let dateA = new Date(a.attributes.target_completion_date), dateB = new Date(b.attributes.target_completion_date);
-              return dateA - dateB;
-            }) 
-            : null
-    // console.log("openProjects", openProjects)
-
-
     let clientName = ''
 
-  const openProjectList = openProjects.map(proj => 
+    const recentlySavedSortedProjects = props ? props.projects.projects.sort(function(a,b){
+        let dateA = new Date(a.attributes.updated_at), dateB = new Date(b.attributes.updated_at);
+        return dateB - dateA;
+      }) : null
+    // console.log("recentlySavedSortedProjects", recentlySavedSortedProjects)
+
+  const recentlySavedProjectList = recentlySavedSortedProjects.map(proj => 
     createData(`${proj.id}`, <Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>,`${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.budget}`, `${proj.attributes.quantity}`, `${proj.attributes.end_destination}`,new Date(`${proj.attributes.target_completion_date}`).toLocaleString().split(',')[0], new Date(`${proj.attributes.completion_date}`).toLocaleString().split(',')[0])
   )
-  // console.log("openProjectList", openProjectList)
+
+  console.log("recentlySaved", recentlySavedProjectList)
 
   const classes = useStyles();
 
   return (
     <div className="data_container">
-        <h2>OPEN PROJECTS</h2>
+        <h2>RECENTLY SAVED PROJECTS</h2>
         
       <Paper className={classes.root}>
       <TableContainer className={classes.container}>
@@ -71,7 +66,7 @@ const OpenProjects = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {openProjectList.map(row => (
+          {recentlySavedProjectList.map(row => (
               // console.log("row", row),
               // console.log("prop", props),
               clientName = props.clients.clients ? props.clients.clients.filter(client => client.id === row.client_id)[0] : null,
@@ -88,12 +83,11 @@ const OpenProjects = (props) => {
               <TableCell align="right">{row.target_completion_date}</TableCell>
               <TableCell align="right">{row.completion_date === "Invalid Date" ? "OPEN" : row.completion_date}</TableCell>
             </TableRow>
-          ))} 
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
     </Paper>
-
     </div>
   );
 }
@@ -104,4 +98,4 @@ const mapStateToProps = state =>{
         clients: state.clientReducer,
     }
 }
-export default connect(mapStateToProps, null)(OpenProjects);
+export default connect(mapStateToProps, null)(RecentlySavedProjects);

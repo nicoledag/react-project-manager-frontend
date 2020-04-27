@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Project from './Project'
 import AllProjects from './AllProjects'
 import OpenProjects from './OpenProjects'
+import RecentlySavedProjects from './RecentlySavedProjects'
 import { fetchProjects } from '../../actions/project'
 import { fetchClients } from '../../actions/client'
 // import Button from '@material-ui/core/Button';
@@ -39,7 +40,7 @@ class Projects extends Component {
 
 
 
-    handleClick(){
+    handleClickAllProjects(){
         console.log("handleClick props", this.props) 
         console.log("I have been clicked")
         let allProjects = document.getElementById('all_projects');
@@ -77,7 +78,7 @@ class Projects extends Component {
                         </button>
                     </div>
                     <div className="item">
-                        <button id="btn_style" className="button" onClick={() => this.handleClick(this.props)} >
+                        <button id="btn_style" className="button" onClick={() => this.handleClickAllProjects(this.props)} >
                             <div>All Projects</div>
                         </button>
                     </div>
@@ -90,7 +91,7 @@ class Projects extends Component {
                     </div>
 
                     <div id="recently_saved_projects">
-                        {/* <OpenProjects /> */}
+                        <RecentlySavedProjects />
                     </div>
 
                     <div id="all_projects">
