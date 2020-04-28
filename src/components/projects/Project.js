@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const Project = (props) => {
 
-    // console.log("project", props)
+    console.log("project", props)
 
   
   // console.log(props.clients.clients)
@@ -15,16 +15,19 @@ const Project = (props) => {
     // ADD CLIENT SORT BY DATE CREATED!!
 
     let comments = props.project ? props.project.attributes.comments.map(comment => 
-        <div>
-           <li className="project-text"> <b className="titlespacing">Comment:</b> {comment.text}</li>
+        <div key={comment.comment_id}>
+           <li className="project-text"> <b className="titlespacing">Created At:</b> {comment.created_at} {comment.text}</li>
         </div>
       ) 
       : null
 
+      console.log("comments", comments)
+
+      
     return (
         <div className="container-form">
           <div className="data-project">
-            <h2>Project Page</h2>
+            <h2>Project Information</h2>
             <li className="project-text"> <b className="titlespacing">Project Name:</b> {props.project ? props.project.attributes.name : null}</li>
             <li className="project-text"> <b className="titlespacing">Description:</b> {props.project ? props.project.attributes.desc : null}</li>
             <li className="project-text"> <b className="titlespacing">Client:</b> {client ? client.attributes.name : null}</li>
@@ -37,6 +40,8 @@ const Project = (props) => {
             <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
             <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project ? props.project.attributes.completion_date : null}</li>
             <br></br>
+
+            <h2>Project Comments</h2>
             {comments}
           </div>
         </div>
