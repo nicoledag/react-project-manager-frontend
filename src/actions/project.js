@@ -54,6 +54,8 @@ export const myProjects = projects => {
         }
       })
     }
+  }
 
-
+  export const editProject = (data) => {
+    
   }

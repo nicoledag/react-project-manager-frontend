@@ -10,6 +10,7 @@ import DashboardContainer from './containers/DashboardContainer'
 import ClientsContainer from './containers/ClientsContainer'
 import Project from './components/projects/Project'
 import ProjectNew from './components/projects/ProjectNew'
+import ProjectEdit from './components/projects/ProjectEdit'
 import Navbar from './components/layout/Navbar'
 import Home from './containers/Home'
 
@@ -49,13 +50,15 @@ class App extends Component {
 
         {/* <Route exact path='/projects' component={DashboardContainer} /> */}
         <Route exact path='/projects/new' component={ProjectNew}/>
-       
+        <Route exact path='/projects/:id/edit' component={ProjectEdit}/>
+
         <Route exact path='/projects/:id' render={props => {
             const project = projects.projects.find(project => project.id === props.match.params.id)
           
             return <Project project={project} {...props} />
            }
           }/>
+
 
           
 
