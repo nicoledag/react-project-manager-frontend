@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const Project = (props) => {
 
-    // console.log("project", props)
+    console.log("project", props)
 
    if(props.project === undefined) return null
   // console.log(props.clients.clients)
@@ -26,9 +26,9 @@ const Project = (props) => {
       // console.log("comments", comments)
 
       
-     let targetCompletionDate = new Date(`${props.project.attributes.target_completion_date}`).toLocaleString().split(',')[0]
+    //  let targetCompletionDate = new Date(`${props.project.attributes.target_completion_date}`).toLocaleString().split(',')[0]
 
-     let completionDate = new Date(`${props.project.attributes.completion_date}`).toLocaleString().split(',')[0]
+    //  let completionDate = new Date(`${props.project.attributes.completion_date}`).toLocaleString().split(',')[0]
 
 
      return (
@@ -45,8 +45,8 @@ const Project = (props) => {
             <li className="project-text"> <b className="titlespacing">End Destination:</b> {props.project ? props.project.attributes.end_destination : null}</li>
 
             
-            <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {targetCompletionDate ? targetCompletionDate : null}</li>
-            <li className="project-text"> <b className="titlespacing">Completion Date:</b> {completionDate === "Invalid Date" ? "OPEN" : completionDate}</li>
+            <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
+            <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project === "Invalid Date" ? "OPEN" : props.project.attributes.completion_date}</li>
             <li><Link to={`/projects/${props.project.id}/edit`}>Edit</Link></li>
 
             <br></br>

@@ -80,7 +80,7 @@ export const myProjects = projects => {
         if(response.error){
           alert(response.error)
         }else {
-          dispatch(editMyProject(respsonse.data))
+          dispatch(editMyProject(response.data))
         }
       })
     }
