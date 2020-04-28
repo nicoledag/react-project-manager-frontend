@@ -22,7 +22,7 @@ class ProjectEdit extends Component {
 
 
     handleChange = e =>{
-        // console.log(e.target.value)
+        console.log(e.target.value)
         this.setState({
             [e.target.id]: e.target.value 
         })
@@ -30,19 +30,19 @@ class ProjectEdit extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        // console.log(this.state)
-        this.props.editProject(this.state);
-        this.props.history.push('/projects');
-        this.setState({
-            name: '',
-            desc: '',
-            client_id: '',
-            budget: '',
-            quantity: '',
-            end_destination: '',
-            target_completion_date: '',
-            completion_date: '',
-        })
+        console.log(this.state)
+        // this.props.editProject(this.state);
+        // this.props.history.push('/projects');
+        // this.setState({
+        //     name: '',
+        //     desc: '',
+        //     client_id: '',
+        //     budget: '',
+        //     quantity: '',
+        //     end_destination: '',
+        //     target_completion_date: '',
+        //     completion_date: '',
+        // })
     }
 
     render() { 
