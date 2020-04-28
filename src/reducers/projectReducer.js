@@ -4,7 +4,17 @@ export default (state = { projects: []}, action) => {
             return {...state, projects: action.projects}
         case "ADD_PROJECT":
             return {...state, projects: [...state.projects, action.project]}
-        default:
+        case "EDIT_PROJECT":
+            let projectTwo = state.projects.map(project => {
+                if (project.id === action.project.id) {
+                    return action.project
+                     } else {
+                      return project
+                    }
+            })
+
+            return {...state, projects: projectTwo }
+        default: 
             return state
     }
 }
