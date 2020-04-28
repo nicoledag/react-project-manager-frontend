@@ -37,7 +37,7 @@ class Login extends Component {
       
             <div className="container-form">
                 <div className="middle-container">
-                    <h1>Login</h1>
+                    <h1>Welcome, Login</h1>
 
                     <form onSubmit={this.handleSubmit}>
                     <div className="row"> 
@@ -58,7 +58,8 @@ class Login extends Component {
                          <input type="submit" value="Login"></input>
                     </div>
                     </form>
-                    
+                   <br></br> 
+                    <h2>Regester Here</h2>
                 </div>
             </div>
           );
