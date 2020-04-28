@@ -6,11 +6,17 @@ export const myProjects = projects => {
           projects
       }
   }
-  
 
   export const addProject = project => {
       return {
         type: "ADD_PROJECT",
+        project
+      }
+  }
+
+  export const editMyProject = project => {
+      return {
+        type: "EDIT_PROJECT",
         project
       }
   }
@@ -60,6 +66,22 @@ export const myProjects = projects => {
     console.log("data", data)
 
     return dispatch => {
-      return fetch(`http://localhost:3001/api/v1/projects/${data.id}`)
+      return fetch(`http://localhost:3001/api/v1/projects/${data.id}`, {
+        credentials: "include",
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body:JSON.stringify(data)
+      })
+      .then(r => r.json())
+      .then(response => {
+        console.log("Response", response);
+        if(response.error){
+          alert(response.error)
+        }else {
+          dispatch(editMyProject(respsonse.data))
+        }
+      })
     }
   }
