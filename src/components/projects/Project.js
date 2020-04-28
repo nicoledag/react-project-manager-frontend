@@ -6,20 +6,22 @@ const Project = (props) => {
 
     console.log("project", props)
 
-  
+   if(props.project === undefined) return null
   // console.log(props.clients.clients)
   // console.log(props.project.attributes.client_id)
-    let client = props.clients.clients && props.project ? props.clients.clients.filter(client => parseInt(client.id) === props.project.attributes.client_id)[0] : null
+    let client = props.clients.clients ? props.clients.clients.filter(client => parseInt(client.id) === props.project.attributes.client_id)[0] : null
     // console.log("client", client)
 
     // ADD CLIENT SORT BY DATE CREATED!!
+    function createData(id, text, created_at) {
+      return { id, text, created_at };
+    }
+  
 
-    let comments = props.project ? props.project.attributes.comments.map(comment => 
-        <div key={comment.comment_id}>
-           <li className="project-text"> <b className="titlespacing">Created At:</b> {comment.created_at} {comment.text}</li>
-        </div>
-      ) 
-      : null
+    let comments = props.project.attributes.comments ? props.project.attributes.comments.map(comment => 
+      createData(`${comment.comment_id}`,`${comment.text}` , new Date(`${comment.created_at}`).toLocaleString().split(',')[0]) 
+    )
+    : null
 
       console.log("comments", comments)
 
@@ -28,6 +30,7 @@ const Project = (props) => {
         <div className="container-form">
           <div className="data-project">
             <h2>Project Information</h2>
+            
             <li className="project-text"> <b className="titlespacing">Project Name:</b> {props.project ? props.project.attributes.name : null}</li>
             <li className="project-text"> <b className="titlespacing">Description:</b> {props.project ? props.project.attributes.desc : null}</li>
             <li className="project-text"> <b className="titlespacing">Client:</b> {client ? client.attributes.name : null}</li>
@@ -40,9 +43,17 @@ const Project = (props) => {
             <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
             <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project ? props.project.attributes.completion_date : null}</li>
             <br></br>
-
+            <br></br>
             <h2>Project Comments</h2>
-            {comments}
+            
+              {comments.map(comment => (
+                <div key={comment.id}>
+                  <li><b> Created At: </b> {comment.created_at}</li>
+                  <li><b>Text: </b> {comment.text} </li>
+                  <li><Link to={`/comments/${comment.id}`}>Edit</Link></li>
+                  <br></br>
+                </div>
+                ))}
           </div>
         </div>
 
