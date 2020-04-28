@@ -42,6 +42,8 @@ const Project = (props) => {
             
             <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
             <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project ? props.project.attributes.completion_date : null}</li>
+            <li><Link to={`/projects/${props.project.id}/edit`}>Edit</Link></li>
+
             <br></br>
             <br></br>
             <h2>Project Comments</h2>
@@ -50,7 +52,7 @@ const Project = (props) => {
                 <div key={comment.id}>
                   <li><b> Created At: </b> {comment.created_at}</li>
                   <li><b>Text: </b> {comment.text} </li>
-                  <li><Link to={`/comments/${comment.id}`}>Edit</Link></li>
+                  <li><Link to={`/comments/${comment.id}/edit`}>Edit</Link></li>
                   <br></br>
                 </div>
                 ))}
