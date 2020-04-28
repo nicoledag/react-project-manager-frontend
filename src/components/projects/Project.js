@@ -23,10 +23,15 @@ const Project = (props) => {
     )
     : null
 
-      console.log("comments", comments)
+      // console.log("comments", comments)
 
       
-    return (
+     let targetCompletionDate = new Date(`${props.project.attributes.target_completion_date}`).toLocaleString().split(',')[0]
+
+     let completionDate = new Date(`${props.project.attributes.completion_date}`).toLocaleString().split(',')[0]
+
+
+     return (
         <div className="container-form">
           <div className="data-project">
             <h2>Project Information</h2>
@@ -40,8 +45,8 @@ const Project = (props) => {
             <li className="project-text"> <b className="titlespacing">End Destination:</b> {props.project ? props.project.attributes.end_destination : null}</li>
 
             
-            <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
-            <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project ? props.project.attributes.completion_date : null}</li>
+            <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {targetCompletionDate ? targetCompletionDate : null}</li>
+            <li className="project-text"> <b className="titlespacing">Completion Date:</b> {completionDate === "Invalid Date" ? "OPEN" : completionDate}</li>
             <li><Link to={`/projects/${props.project.id}/edit`}>Edit</Link></li>
 
             <br></br>
