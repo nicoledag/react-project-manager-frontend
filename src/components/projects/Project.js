@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const Project = (props) => {
 
-    console.log("project", props)
+    // console.log("project", props)
 
    if(props.project === undefined) return null
   // console.log(props.clients.clients)

@@ -4,19 +4,19 @@ import { editProject } from '../../actions/project'
 import { Redirect } from 'react-router-dom'
 
 class ProjectEdit extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
 
         console.log("edit", this.props)
         this.state = {
-            // name: `${this.props.project ? this.props.project.attributes.name : ""}` ,
-            desc: '',
+            name: `${this.props.project ? this.props.project.attributes.name : ""}` ,
+            desc: `${this.props.project ? this.props.project.attributes.desc : ""}`,
             client_id: '',
-            budget: '',
-            quantity: '',
-            end_destination: '',
-            target_completion_date: '',
-            completion_date: '',
+            budget: `${this.props.project ? this.props.project.attributes.budget : ""}`,
+            quantity: `${this.props.project ? this.props.project.attributes.quantity : ""}`,
+            end_destination: `${this.props.project ? this.props.project.attributes.end_destination : ""}`,
+            target_completion_date: `${this.props.project ? this.props.project.attributes.target_completion_date : ""}`,
+            completion_date: `${this.props.project ? this.props.project.attributes.completion_date : ""}`,
         }
     }
 
@@ -59,14 +59,14 @@ class ProjectEdit extends Component {
                             <div className="label">    
                                 <label htmlFor="name">Project Name:  </label>
                             </div>  
-                                <input type="text" name="name" id="name" placeholder="Enter Project Name" onChange={this.handleChange} required/>
+                                <input type="text" name="name" id="name" value={this.state.name}  onChange={this.handleChange} required/>
                         </div>
 
                         <div className="row"> 
                             <div className="label">    
                                 <label htmlFor="desc">Description:  </label>
                             </div>  
-                                <input type="text" name="desc" id="desc" placeholder="Enter Description" onChange={this.handleChange} required/>
+                                <input type="text" name="desc" id="desc" value={this.state.desc} onChange={this.handleChange} required/>
                         </div>
                         
 
@@ -75,7 +75,7 @@ class ProjectEdit extends Component {
                                 <label htmlFor="budget">Budget: $ </label>
                             </div>  
                             <div className="dollar_sign">
-                                <input type="text" name="budget" id="budget" placeholder="Enter Budget" onChange={this.handleChange} required/>
+                                <input type="text" name="budget" id="budget" value={this.state.budget}onChange={this.handleChange} required/>
                             </div>
                         </div>
 
@@ -83,14 +83,14 @@ class ProjectEdit extends Component {
                             <div className="label">    
                                 <label htmlFor="quantity">Quantity:  </label>
                             </div>  
-                                <input type="text" name="quantity" id="quantity" placeholder="Enter Quantity" onChange={this.handleChange} required/>
+                                <input type="text" name="quantity" id="quantity" value={this.state.quantity} onChange={this.handleChange} required/>
                         </div>
                         
                         <div className="row"> 
                             <div className="label">    
                                 <label htmlFor="end_destination">End Destination:  </label>
                             </div>  
-                                <input type="text" name="end_destination" id="end_destination" placeholder="Enter Desination" onChange={this.handleChange} required/>
+                                <input type="text" name="end_destination" id="end_destination" value={this.state.end_destination} onChange={this.handleChange} required/>
                         </div>
 
                         <div className="row"> 
@@ -107,13 +107,13 @@ class ProjectEdit extends Component {
                             <div className="label">    
                                 <label htmlFor="target_completion_date">Target Completion Date:  </label>
                             </div>  
-                                <input type="date" name="target_completion_date" id="target_completion_date" placeholder="Enter Target Completion Date" onChange={this.handleChange} required/>
+                                <input type="date" name="target_completion_date" id="target_completion_date" value={this.state.target_completion_date} onChange={this.handleChange} required/>
                         </div>
                         <div className="row"> 
                             <div className="label">    
                                 <label htmlFor="completion_date">Completion Date:  </label>
                             </div>  
-                                <input type="date" name="completion_date" id="completion_date" placeholder="Enter Completion Date" onChange={this.handleChange} />
+                                <input type="date" name="completion_date" id="completion_date" value={this.state.completion_date} onChange={this.handleChange} />
                         </div>
                         <div className="row">
                          <input type="submit" value="Submit"></input>
