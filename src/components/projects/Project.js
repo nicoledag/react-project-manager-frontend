@@ -47,11 +47,13 @@ const Project = (props) => {
             <br></br>
             <br></br>
             <h2>Project Comments</h2>
-            
+              <li><Link to={`/comments/new`}>Add New Comment</Link></li>
+              <br></br>
               {comments.map(comment => (
                 <div key={comment.id}>
                   <li><b> Created At: </b> {comment.created_at}</li>
                   <li><b>Text: </b> {comment.text} </li>
+
                   <li><Link to={`/comments/${comment.id}/edit`}>Edit</Link></li>
                   <br></br>
                 </div>

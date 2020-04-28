@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { login } from '../../actions/currentUser.js'
 import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 
 class Login extends Component {
     constructor(){
@@ -58,8 +60,10 @@ class Login extends Component {
                          <input type="submit" value="Login"></input>
                     </div>
                     </form>
-                   <br></br> 
-                    <h2>Regester Here</h2>
+                  
+                   <div className="signup">
+                        <p><Link to={`/signup`}>Register Here</Link> to create an account.</p>
+                   </div>
                 </div>
             </div>
           );

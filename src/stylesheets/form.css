@@ -75,5 +75,20 @@
     display: table;
   }
 
+  .signup {
+    margin-top: 20px;
+  }
+
+  .signup a{
+    color: black;
+    font-weight: bold;
+  }
+
+  .signup a:hover {
+    color: #007aff;
+    text-decoration-line: underline;
+  }
+
+
 
 }

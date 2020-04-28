@@ -68,13 +68,12 @@ class Register extends Component {
                     <div className="row">
                         <input type="submit" value="Register"></input>
                     </div>
-
-                    <div>
-                        <p>Already have an account? <Link to="/login">Login</Link></p>
-                    </div>
-
-
                 </form>
+
+                    <div className="signup">
+                        <p>Already registered? <Link to="/login">Login Here</Link></p>
+                  </div>
+
             </div>
         </div> 
         );
