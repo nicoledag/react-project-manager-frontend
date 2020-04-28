@@ -57,5 +57,9 @@ export const myProjects = projects => {
   }
 
   export const editProject = (data) => {
-    
+    console.log("data", data)
+
+    return dispatch => {
+      return fetch(`http://localhost:3001/api/v1/projects/${data.id}`)
+    }
   }

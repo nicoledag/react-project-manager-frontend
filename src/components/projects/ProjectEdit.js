@@ -30,19 +30,19 @@ class ProjectEdit extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state)
-        // this.props.editProject(this.state);
-        // this.props.history.push('/projects');
-        // this.setState({
-        //     name: '',
-        //     desc: '',
-        //     client_id: '',
-        //     budget: '',
-        //     quantity: '',
-        //     end_destination: '',
-        //     target_completion_date: '',
-        //     completion_date: '',
-        // })
+        let product = {...this.state, id: this.props.project.id }
+        this.props.editProject(product);
+        this.props.history.push(`/projects/${this.props.project.id}`);
+        this.setState({
+            name: '',
+            desc: '',
+            client_id: '',
+            budget: '',
+            quantity: '',
+            end_destination: '',
+            target_completion_date: '',
+            completion_date: '',
+        })
     }
 
     render() { 
