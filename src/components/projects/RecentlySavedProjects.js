@@ -81,7 +81,7 @@ const RecentlySavedProjects = (props) => {
               <TableCell align="right">{row.quantity}</TableCell>
               <TableCell align="right">{row.end_destination}</TableCell>
               <TableCell align="right">{row.target_completion_date}</TableCell>
-              <TableCell align="right">{row.completion_date === "Invalid Date" ? "OPEN" : row.completion_date}</TableCell>
+              <TableCell align="right">{row.completion_date === "null" ? "OPEN" : row.completion_date}</TableCell>
             </TableRow>
           ))}
         </TableBody>

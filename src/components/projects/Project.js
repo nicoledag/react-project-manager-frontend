@@ -46,7 +46,7 @@ const Project = (props) => {
 
             
             <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
-            <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project === "Invalid Date" ? "OPEN" : props.project.attributes.completion_date}</li>
+            <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project.attributes.completion_date === null ? "OPEN" : props.project.attributes.completion_date}</li>
             <li><Link to={`/projects/${props.project.id}/edit`}>Edit</Link></li>
 
             <br></br>
