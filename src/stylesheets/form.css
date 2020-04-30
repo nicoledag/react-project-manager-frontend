@@ -82,6 +82,7 @@
   .signup a{
     color: black;
     font-weight: bold;
+    background-color: #007aff;
   }
 
   .signup a:hover {

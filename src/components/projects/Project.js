@@ -47,8 +47,12 @@ const Project = (props) => {
             
             <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
             <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project.attributes.completion_date === null ? "OPEN" : props.project.attributes.completion_date}</li>
-            <li><Link to={`/projects/${props.project.id}/edit`}>Edit</Link></li>
-
+            
+            <div className="flex">
+              <li><Link to={`/projects/${props.project.id}/edit`}>Edit Project</Link></li>
+          
+              <li><Link to={`/projects/${props.project.id}/delete`}>Delete Project</Link></li>
+            </div>
             <br></br>
             <br></br>
             <h2>Project Comments</h2>
@@ -58,9 +62,10 @@ const Project = (props) => {
                 <div key={comment.id}>
                   <li><b> Created At: </b> {comment.created_at}</li>
                   <li><b>Text: </b> {comment.text} </li>
-
-                  <li><Link to={`/comments/${comment.id}/edit`}>Edit</Link></li>
-                  <br></br>
+                  <div className="flex">
+                    <li><Link to={`/comments/${comment.id}/edit`}>Edit Comment</Link></li>
+                    <li><Link to={`/comments/${comment.id}/delete`}>Delete Comment</Link></li>
+                  </div>
                 </div>
                 ))}
           </div>

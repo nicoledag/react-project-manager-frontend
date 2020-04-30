@@ -127,5 +127,28 @@ body {
      display: none;
    }
 
- 
+   .flex {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+   }
 
+  .flex a{
+    padding-right: 40px;
+   
+    color:black;
+    font-weight: bold;
+    background-color: #007aff;
+
+    padding: 12px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 4px;
+
+  }
+
+  .flex a:hover {
+    color: #007aff;
+    text-decoration-line: underline;
+  }
