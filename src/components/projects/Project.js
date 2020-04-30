@@ -35,31 +35,36 @@ const Project = (props) => {
         <div className="container-form">
           <div className="data-project">
             <h2>Project Information</h2>
+            <div className="proj_border">
+              <li className="project-text"> <b className="titlespacing">Project Name:</b> {props.project ? props.project.attributes.name : null}</li>
+              <li className="project-text"> <b className="titlespacing">Description:</b> {props.project ? props.project.attributes.desc : null}</li>
+              <li className="project-text"> <b className="titlespacing">Client:</b> {client ? client.attributes.name : null}</li>
             
-            <li className="project-text"> <b className="titlespacing">Project Name:</b> {props.project ? props.project.attributes.name : null}</li>
-            <li className="project-text"> <b className="titlespacing">Description:</b> {props.project ? props.project.attributes.desc : null}</li>
-            <li className="project-text"> <b className="titlespacing">Client:</b> {client ? client.attributes.name : null}</li>
-          
-            <li className="project-text"> <b className="titlespacing">Budget: </b> ${props.project ? props.project.attributes.budget : null}</li>
-            <li className="project-text"> <b className="titlespacing">Quantity:</b> {props.project ? props.project.attributes.quantity : null}</li>
-            <li className="project-text"> <b className="titlespacing">End Destination:</b> {props.project ? props.project.attributes.end_destination : null}</li>
+              <li className="project-text"> <b className="titlespacing">Budget: </b> ${props.project ? props.project.attributes.budget : null}</li>
+              <li className="project-text"> <b className="titlespacing">Quantity:</b> {props.project ? props.project.attributes.quantity : null}</li>
+              <li className="project-text"> <b className="titlespacing">End Destination:</b> {props.project ? props.project.attributes.end_destination : null}</li>
 
+              
+              <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
+              <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project.attributes.completion_date === null ? "OPEN" : props.project.attributes.completion_date}</li>
+              
+              <div className="flex">
+                <li><Link to={`/projects/${props.project.id}/edit`}>Edit Project</Link></li>
             
-            <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
-            <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project.attributes.completion_date === null ? "OPEN" : props.project.attributes.completion_date}</li>
-            
-            <div className="flex">
-              <li><Link to={`/projects/${props.project.id}/edit`}>Edit Project</Link></li>
-          
-              <li><Link to={`/projects/${props.project.id}/delete`}>Delete Project</Link></li>
+                <li><Link to={`/projects/${props.project.id}/delete`}>Delete Project</Link></li>
+              </div>
+              <br></br>
+              <span className="color">Warning: Deleting a project will delete the associated comments.</span>
+
             </div>
             <br></br>
             <br></br>
             <h2>Project Comments</h2>
-              <li><Link to={`/comments/new`}>Add New Comment</Link></li>
-              <br></br>
+            <div className="flex">
+              <li><Link to={`/comments/new`}>New Comment</Link></li>
+             </div>
               {comments.map(comment => (
-                <div key={comment.id}>
+                <div className="proj_border" key={comment.id}>
                   <li><b> Created At: </b> {comment.created_at}</li>
                   <li><b>Text: </b> {comment.text} </li>
                   <div className="flex">

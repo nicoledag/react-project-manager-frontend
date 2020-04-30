@@ -46,3 +46,37 @@
     z-index: 1; 
 } */
 
+.flex {
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 10px;
+    justify-content: space-evenly;
+   }
+
+  .flex a{
+    font-size: 1rem;
+    color:black;
+    background-color: #007aff;
+    padding: 6px 6px;
+    margin-bottom: 20px;
+    /* margin-right: 32px;
+    margin-left: 20px; */
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .flex a:hover {
+    background-color: RGB(137, 237, 255);
+  }
+
+span.color{
+      color:red;
+  }
+  
+  .proj_border {
+      border: gray 1px solid;
+      border-radius: 8px;
+      margin: 12px;
+      padding: 12px;
+  }
+
