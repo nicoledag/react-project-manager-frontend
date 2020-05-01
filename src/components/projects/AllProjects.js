@@ -76,7 +76,7 @@ const AllProjects = (props) => {
               <TableCell component="th" scope="row">{row.id} </TableCell>
               <TableCell component="th" scope="row">{row.name} </TableCell>
               <TableCell align="right">{row.desc}</TableCell>
-              <TableCell align="right">{clientName.attributes.name ? clientName.attributes.name : null}</TableCell>
+              <TableCell align="right">{clientName ? clientName.attributes.name : null}</TableCell>
               <TableCell align="right">{row.budget}</TableCell>
               <TableCell align="right">{row.quantity}</TableCell>
               <TableCell align="right">{row.end_destination}</TableCell>
