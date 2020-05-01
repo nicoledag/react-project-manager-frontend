@@ -12,7 +12,7 @@ class Project extends Component {
   handleDelete = (projectId) => {
     console.log("projectId", projectId)
       this.props.deleteProject(projectId);
-      this.props.history.push(`/project/${projectId}`);
+      this.props.history.push(`/projects`);
   }
 
   handleDeleteComment = (commentId) => {

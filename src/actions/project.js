@@ -20,6 +20,13 @@ export const myProjects = projects => {
         project
       }
   }
+
+  export const deleteMyProject = project => {
+    return {
+      type: "DELETE_PROJECT",
+      project
+    }
+  }
   
   export const fetchProjects = () => {
       return dispatch => {
@@ -86,6 +93,22 @@ export const myProjects = projects => {
     }
   }
 
-  export const deleteProject = (data) => {
-    console.log('here')
+  export const deleteProject = (projectId) => {
+    return dispatch => {
+      return fetch(`http://localhost:3001/api/v1/projects/${projectId}`,{
+        credentials: "include",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      })
+      .then(r=> r.json())
+      .then(response => {
+        if(response.error){
+          alert(response.error)
+        }else {
+          dispatch(deleteMyProject(response.data))
+        }
+      })
+    }
   }

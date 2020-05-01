@@ -14,6 +14,10 @@ export default (state = { projects: []}, action) => {
             })
 
             return {...state, projects: projectTwo }
+
+        case 'DELETE_PROJECT':
+            const projects = state.projects.filter(project => project.id !== action.projectId);
+            return {...state, projects }  
         default: 
             return state
     }
