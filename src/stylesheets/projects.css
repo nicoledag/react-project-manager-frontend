@@ -24,6 +24,13 @@
 }
 
 
+#search_projects {
+    display: none;
+}
+
+#search_projects.open {
+    display: block;
+}
 
 .btn_container{
     display: flex;
@@ -56,7 +63,7 @@
   .flex a{
     font-size: 1rem;
     color:black;
-    background-color: #007aff;
+    background-color: RGB(137, 237, 255);
     padding: 6px 6px;
     margin-bottom: 20px;
     /* margin-right: 32px;
@@ -66,7 +73,7 @@
   }
 
   .flex a:hover {
-    background-color: RGB(137, 237, 255);
+    background-color: #007aff;
   }
 
 span.color{
@@ -80,3 +87,6 @@ span.color{
       padding: 12px;
   }
 
+.search-container{
+    padding: 40px;
+}

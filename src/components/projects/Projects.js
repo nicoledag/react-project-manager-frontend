@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Project from './Project'
 import AllProjects from './AllProjects'
 import OpenProjects from './OpenProjects'
+import SearchProjects from './SearchProjects'
 import RecentlySavedProjects from './RecentlySavedProjects'
 import { fetchProjects } from '../../actions/project'
 import { fetchClients } from '../../actions/client'
@@ -80,6 +81,25 @@ class Projects extends Component {
         }
     }
 
+    handleClickSearchProjects(){
+        let allProjects = document.getElementById('search_projects');
+        let buttonStyle = document.getElementById('btn_style_search_projects');
+
+        if(allProjects.className === "open"){
+            //take data off screen
+            allProjects.className = ""
+            buttonStyle.style.backgroundColor = "#015cdc"
+            buttonStyle.style.color = "white"
+            
+        }else {
+            //show data on screen
+            allProjects.className = "open"
+            buttonStyle.style.backgroundColor = "RGB(137, 237, 255)"
+            buttonStyle.style.color = "black"
+        }
+
+    }
+
     render() { 
 
         const { projects } = this.props;
@@ -96,6 +116,14 @@ class Projects extends Component {
                             <div>Open Projects</div>
                         </button>
                     </div>
+
+                    <div className="item">
+                        <button id="btn_style_search_projects"className="button" onClick={() => this.handleClickSearchProjects(this.props)}>
+                            <div>Search Open Projects</div>
+                        </button>
+                    </div>
+
+
                     <div className="item">
                         <button id="btn_style_recently_saved_projects"className="button" onClick={() => this.handeClickRecentlySavedProjects(this.props)}>
                             Recently Saved Projects
@@ -112,6 +140,10 @@ class Projects extends Component {
 
                     <div id="open_projects">
                         <OpenProjects />
+                    </div>
+
+                    <div id="search_projects">
+                        <SearchProjects />
                     </div>
 
                     <div id="recently_saved_projects">

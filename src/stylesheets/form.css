@@ -82,12 +82,12 @@
   .signup a{
     color: black;
     font-weight: bold;
-    background-color: #007aff;
+    /* background-color: #007aff; */
   }
 
   .signup a:hover {
     color: #007aff;
-    text-decoration-line: underline;
+    /* text-decoration-line: underline; */
   }
 
 
