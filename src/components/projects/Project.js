@@ -1,57 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { createPortal } from 'react-dom';
 
-const Project = (props) => {
+class Project extends Component {
+  constructor(props){
+    super(props)
+    // console.log("project props", props)
+  }
+  render() { 
 
-    console.log("project", props)
-
-   if(props.project === undefined) return null
-  // console.log(props.clients.clients)
-  // console.log(props.project.attributes.client_id)
-    let client = props.clients.clients ? props.clients.clients.filter(client => parseInt(client.id) === props.project.attributes.client_id)[0] : null
+    let client = this.props.clients.clients ? this.props.clients.clients.filter(client => parseInt(client.id) === this.props.project.attributes.client_id)[0] : null
     // console.log("client", client)
 
-    // ADD CLIENT SORT BY DATE CREATED!!
     function createData(id, text, created_at) {
       return { id, text, created_at };
     }
-  
-
-    let comments = props.project.attributes.comments ? props.project.attributes.comments.map(comment => 
+    let comments = this.props.project.attributes.comments ? this.props.project.attributes.comments.map(comment => 
       createData(`${comment.comment_id}`,`${comment.text}` , new Date(`${comment.created_at}`).toLocaleString().split(',')[0]) 
     )
     : null
 
-      // console.log("comments", comments)
+    // console.log("comments", comments)
 
-      
-    //  let targetCompletionDate = new Date(`${props.project.attributes.target_completion_date}`).toLocaleString().split(',')[0]
-
-    //  let completionDate = new Date(`${props.project.attributes.completion_date}`).toLocaleString().split(',')[0]
-
-
-     return (
+    return ( 
         <div className="container-form">
           <div className="data-project">
             <h2>Project Information</h2>
             <div className="proj_border">
-              <li className="project-text"> <b className="titlespacing">Project Name:</b> {props.project ? props.project.attributes.name : null}</li>
-              <li className="project-text"> <b className="titlespacing">Description:</b> {props.project ? props.project.attributes.desc : null}</li>
+              <li className="project-text"> <b className="titlespacing">Project Name:</b> {this.props.project ? this.props.project.attributes.name : null}</li>
+              <li className="project-text"> <b className="titlespacing">Description:</b> {this.props.project ? this.props.project.attributes.desc : null}</li>
               <li className="project-text"> <b className="titlespacing">Client:</b> {client ? client.attributes.name : null}</li>
             
-              <li className="project-text"> <b className="titlespacing">Budget: </b> ${props.project ? props.project.attributes.budget : null}</li>
-              <li className="project-text"> <b className="titlespacing">Quantity:</b> {props.project ? props.project.attributes.quantity : null}</li>
-              <li className="project-text"> <b className="titlespacing">End Destination:</b> {props.project ? props.project.attributes.end_destination : null}</li>
+              <li className="project-text"> <b className="titlespacing">Budget: </b> ${this.props.project ? this.props.project.attributes.budget : null}</li>
+              <li className="project-text"> <b className="titlespacing">Quantity:</b> {this.props.project ? this.props.project.attributes.quantity : null}</li>
+              <li className="project-text"> <b className="titlespacing">End Destination:</b> {this.props.project ? this.props.project.attributes.end_destination : null}</li>
 
               
-              <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {props.project ? props.project.attributes.target_completion_date : null}</li>
-              <li className="project-text"> <b className="titlespacing">Completion Date:</b> {props.project.attributes.completion_date === null ? "OPEN" : props.project.attributes.completion_date}</li>
+              <li className="project-text"> <b className="titlespacing">Target Completion Date:</b> {this.props.project ? this.props.project.attributes.target_completion_date : null}</li>
+              <li className="project-text"> <b className="titlespacing">Completion Date:</b> {this.props.project.attributes.completion_date === null ? "OPEN" : this.props.project.attributes.completion_date}</li>
               
               <div className="flex">
-                <li><Link to={`/projects/${props.project.id}/edit`}>Edit Project</Link></li>
+                <li><Link to={`/projects/${this.props.project.id}/edit`}>Edit Project</Link></li>
             
-                <li><Link to={`/projects/${props.project.id}/delete`}>Delete Project</Link></li>
+                <li><Link to={`/projects/${this.props.project.id}/delete`}>Delete Project</Link></li>
               </div>
               <br></br>
               <span className="color">Warning: Deleting a project will delete the associated comments.</span>
@@ -63,6 +55,7 @@ const Project = (props) => {
             <div className="flex">
               <li><Link to={`/comments/new`}>New Comment</Link></li>
              </div>
+
               {comments.map(comment => (
                 <div className="proj_border" key={comment.id}>
                   <li><b> Created At: </b> {comment.created_at}</li>
@@ -77,11 +70,19 @@ const Project = (props) => {
         </div>
 
 
-    )
+      );
+  }
 }
+ 
+
 const mapStateToProps = state => {
   return {
     clients: state.clientReducer,
   }
 }
 export default connect(mapStateToProps, null)(Project)
+
+
+
+
+

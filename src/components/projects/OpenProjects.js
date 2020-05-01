@@ -14,6 +14,8 @@ import { connect } from 'react-redux';
 
 const OpenProjects = (props) => {
 
+
+
   const useStyles = makeStyles({
     root: {
       width: '100%',
