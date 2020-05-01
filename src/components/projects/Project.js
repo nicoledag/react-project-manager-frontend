@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { createPortal } from 'react-dom';
+import { deleteProject } from '../../actions/project'
 
 class Project extends Component {
   constructor(props){
     super(props)
     // console.log("project props", props)
   }
+
+  handleDelete = (projectId) => {
+    console.log("projectId", projectId)
+      this.props.deleteProject(projectId);
+      this.props.history.push(`/project/${projectId}`);
+  }
+
+  handleDeleteComment = (commentId) => {
+    console.log("commentId", commentId)
+  }
+
   render() { 
 
     let client = this.props.clients.clients ? this.props.clients.clients.filter(client => parseInt(client.id) === this.props.project.attributes.client_id)[0] : null
@@ -42,8 +53,7 @@ class Project extends Component {
               
               <div className="flex">
                 <li><Link to={`/projects/${this.props.project.id}/edit`}>Edit Project</Link></li>
-            
-                <li><Link to={`/projects/${this.props.project.id}/delete`}>Delete Project</Link></li>
+                <button onClick={() => this.handleDelete(`${this.props.project.id}`)} className="delete-button">Delete Project</button>
               </div>
               <br></br>
               <span className="color">Warning: Deleting a project will delete the associated comments.</span>
@@ -62,7 +72,7 @@ class Project extends Component {
                   <li><b>Text: </b> {comment.text} </li>
                   <div className="flex">
                     <li><Link to={`/comments/${comment.id}/edit`}>Edit Comment</Link></li>
-                    <li><Link to={`/comments/${comment.id}/delete`}>Delete Comment</Link></li>
+                    <button onClick={() => this.handleDeleteComment(`${comment.id}`)} className="delete-button">Delete Comment</button>
                   </div>
                 </div>
                 ))}
@@ -80,7 +90,7 @@ const mapStateToProps = state => {
     clients: state.clientReducer,
   }
 }
-export default connect(mapStateToProps, null)(Project)
+export default connect(mapStateToProps, { deleteProject })(Project)
 
 
 

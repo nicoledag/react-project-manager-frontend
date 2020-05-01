@@ -85,3 +85,7 @@ export const myProjects = projects => {
       })
     }
   }
+
+  export const deleteProject = (data) => {
+    console.log('here')
+  }

@@ -75,6 +75,20 @@
   .flex a:hover {
     background-color: #007aff;
   }
+  .delete-button {
+    font-size: 1rem;
+    color:black;
+    background-color: RGB(137, 237, 255);
+    padding: 6px 6px;
+    margin-bottom: 20px;
+    /* margin-right: 32px;
+    margin-left: 20px; */
+    border-radius: 4px;
+  }
+  
+  .delete-button:hover {
+    background-color: #007aff;
+  }
 
 span.color{
       color:red;
