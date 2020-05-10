@@ -20,6 +20,7 @@ class AllProjects extends Component {
   // const projectList = sortedProjects.map(proj => 
   //   createData(`${proj.id}`, <Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>,`${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.budget}`, `${proj.attributes.quantity}`, `${proj.attributes.end_destination}`, `${proj.attributes.target_completion_date}`, `${proj.attributes.completion_date}`)
   // )
+  let clientName = ' '
 
     return ( 
       <div className="table-container">
@@ -41,28 +42,16 @@ class AllProjects extends Component {
             <tbody>
 
               {sortedProjects.map(row => (
-              console.log("row", row),
-//               // console.log("prop", props),
-//               clientName = props.clients.clients ? props.clients.clients.filter(client => client.id === row.client_id)[0] : null,
-//               // console.log("client", clientName),
-          
-//             <TableRow key={row.id}>
-//               <TableCell component="th" scope="row">{row.id} </TableCell>
-//               <TableCell component="th" scope="row">{row.name} </TableCell>
-//               <TableCell align="right">{row.desc}</TableCell>
-//               <TableCell align="right">{clientName ? clientName.attributes.name : null}</TableCell>
-//               <TableCell align="right">{row.budget}</TableCell>
-//               <TableCell align="right">{row.quantity}</TableCell>
-//               <TableCell align="right">{row.end_destination}</TableCell>
-//               <TableCell align="right">{row.target_completion_date}</TableCell>
-//               <TableCell align="right">{row.completion_date === "null" ? "OPEN" : row.completion_date}</TableCell>
-//             </TableRow>
-//          
+              // console.log("row", row),
+              // console.log("prop", this.props),
+              clientName = this.props.clients.clients ? this.props.clients.clients.filter(client => parseInt(client.id) === row.attributes.client_id)[0] : null,
+              // console.log("client", clientName),
+               
 
               <tr key={row.id}>
                 <td><Link to={`/projects/${row.id}`}>{row.attributes.name}</Link></td>
                 <td>{row.attributes.desc} </td>
-                <td>{row.attributes.client_id} </td>
+                <td>{clientName.attributes.name} </td>
                 <td>${row.attributes.budget} </td>
                 <td>{row.attributes.quantity}</td>
                 <td>{row.attributes.end_destination}</td>
