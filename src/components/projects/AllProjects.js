@@ -4,8 +4,15 @@ import { connect } from 'react-redux';
 
 class AllProjects extends Component {
   constructor(props){
-    super()
+    super();
+    this.state = {
+      search: ''
+    }
+  }
 
+  updateSearch(event){
+    this.setState({search: event.target.value})
+    // console.log(this.state.search)
   }
 
   
@@ -15,7 +22,7 @@ class AllProjects extends Component {
         let dateA = new Date(a.attributes.created_at), dateB = new Date(b.attributes.created_at);
         return dateB - dateA;
     }) : null
-    console.log("sortedProjects", sortedProjects)
+    // console.log("sortedProjects", sortedProjects)
 
   // const projectList = sortedProjects.map(proj => 
   //   createData(`${proj.id}`, <Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>,`${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.budget}`, `${proj.attributes.quantity}`, `${proj.attributes.end_destination}`, `${proj.attributes.target_completion_date}`, `${proj.attributes.completion_date}`)
@@ -25,6 +32,11 @@ class AllProjects extends Component {
     return ( 
       <div className="table-container">
       <h2>ALL PROJECTS</h2>
+        <input type="text"
+          id="search"
+          value={this.state.search}
+          onChange={this.updateSearch.bind(this)}
+          placeholder="Search name..." />
           <table id="table-js" >
             <thead>
               <tr>
