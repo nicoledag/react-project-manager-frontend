@@ -18,8 +18,8 @@ class Projects extends Component {
     }
 
     componentDidMount(){
-        this.props.fetchProjects()
-        this.props.fetchClients()
+        // this.props.fetchProjects()
+        // this.props.fetchClients()
     }
 
     handeClickRecentlySavedProjects(){
@@ -103,9 +103,10 @@ class Projects extends Component {
     render() { 
 
         const { projects } = this.props;
+        console.log("project props", projects)
 
         const { loggedIn } = this.props;
-        // console.log("loggedIn", loggedIn)
+        console.log("loggedIn", loggedIn)
         if (!loggedIn) return <Redirect to='/' />
 
         return ( 
@@ -126,7 +127,7 @@ class Projects extends Component {
 
                     <div className="item">
                         <button id="btn_style_recently_saved_projects"className="button" onClick={() => this.handeClickRecentlySavedProjects(this.props)}>
-                            Recently Saved Projects
+                            <div>Recently Saved Projects</div>
                         </button>
                     </div>
                     <div className="item">
@@ -139,7 +140,7 @@ class Projects extends Component {
                 <div className="projects">
 
                     <div id="open_projects">
-                        <OpenProjects />
+                        <OpenProjects projects={projects} />
                     </div>
 
                     <div id="search_projects">
@@ -164,10 +165,9 @@ class Projects extends Component {
     }
 }
  
-const mapStateToProps = ({ currentUser }, state) => {
+const mapStateToProps = state => {
     return {
-        currentUser,
-        loggedIn: !!currentUser,
+        loggedIn: !!state.currentUser,
         projects: state.projectReducer,
     }
 }

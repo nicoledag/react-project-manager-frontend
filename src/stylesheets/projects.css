@@ -104,3 +104,46 @@ span.color{
 .search-container{
     padding: 40px;
 }
+
+.table-container{
+    padding: 10px;
+}
+
+
+#table-js {
+    /* font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; */
+    border-collapse: collapse;
+    width: 100%;
+    /* display: none; */
+    
+}
+#table-js td, th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      font-size: .90rem;
+    }
+
+ #table-js tr:hover {background-color: #ddd;}
+
+ #table-js th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    
+    color: black;
+  }
+
+.table-container {
+    overflow-y: scroll;
+    /* overflow-x:auto; */
+    margin-top: 60px;
+    background-color: white;
+    padding: 20px;
+}
+
+.table-container h2{
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+}

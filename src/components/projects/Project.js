@@ -55,9 +55,6 @@ class Project extends Component {
                 <li><Link to={`/projects/${this.props.project.id}/edit`}>Edit Project</Link></li>
                 <button onClick={() => this.handleDelete(`${this.props.project.id}`)} className="delete-button">Delete Project</button>
               </div>
-              <br></br>
-              <span className="color">Warning: Deleting a project will delete the associated comments.</span>
-
             </div>
             <br></br>
             <br></br>
