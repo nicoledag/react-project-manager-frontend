@@ -18,7 +18,7 @@ class OpenProjects extends Component {
   
   render() { 
 
-    console.log("search", this.state.search)
+    // console.log("search", this.state.search)
 
 
 

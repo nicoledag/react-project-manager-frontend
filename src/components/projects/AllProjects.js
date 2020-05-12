@@ -18,7 +18,7 @@ class AllProjects extends Component {
   
   render() { 
 
-    console.log("search", this.state.search)
+    // console.log("search", this.state.search)
 
 
 
@@ -26,7 +26,7 @@ class AllProjects extends Component {
         let dateA = new Date(a.attributes.created_at), dateB = new Date(b.attributes.created_at);
         return dateB - dateA;
     }) : null
-    console.log("sortedProjects", sortedProjects)
+    // console.log("sortedProjects", sortedProjects)
 
   // const projectList = sortedProjects.map(proj => 
   //   createData(`${proj.id}`, <Link to={`/projects/${proj.id}`}>{proj.attributes.name}</Link>,`${proj.attributes.desc}`, `${proj.attributes.client_id}`, `${proj.attributes.budget}`, `${proj.attributes.quantity}`, `${proj.attributes.end_destination}`, `${proj.attributes.target_completion_date}`, `${proj.attributes.completion_date}`)
