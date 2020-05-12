@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import Project from './Project'
 import AllProjects from './AllProjects'
 import OpenProjects from './OpenProjects'
-import SearchProjects from './SearchProjects'
 import RecentlySavedProjects from './RecentlySavedProjects'
 import { fetchProjects } from '../../actions/project'
 import { fetchClients } from '../../actions/client'
@@ -119,13 +118,6 @@ class Projects extends Component {
                     </div>
 
                     <div className="item">
-                        <button id="btn_style_search_projects"className="button" onClick={() => this.handleClickSearchProjects(this.props)}>
-                            <div>Search Open Projects</div>
-                        </button>
-                    </div>
-
-
-                    <div className="item">
                         <button id="btn_style_recently_saved_projects"className="button" onClick={() => this.handeClickRecentlySavedProjects(this.props)}>
                             <div>Recently Saved Projects</div>
                         </button>
@@ -141,10 +133,6 @@ class Projects extends Component {
 
                     <div id="open_projects">
                         <OpenProjects projects={projects} />
-                    </div>
-
-                    <div id="search_projects">
-                        <SearchProjects />
                     </div>
 
                     <div id="recently_saved_projects">

@@ -38,7 +38,7 @@ class OpenProjects extends Component {
 
     return ( 
       <div className="table-container">
-      <h2>ALL PROJECTS</h2>
+      <h2>OPEN PROJECTS</h2>
         {/* <input type="text"
           id="search"
           value={this.state.search}
