@@ -11,6 +11,7 @@ import ClientsContainer from './containers/ClientsContainer'
 import Project from './components/projects/Project'
 import ProjectNew from './components/projects/ProjectNew'
 import ProjectEdit from './components/projects/ProjectEdit'
+import ProjectCommentNew from './components/projects/ProjectCommentNew'
 import Navbar from './components/layout/Navbar'
 import Home from './containers/Home'
 
@@ -66,6 +67,9 @@ class App extends Component {
           }/>
 
         <Route exact path='/clients' component={ClientsContainer} /> 
+        
+        <Route exact path='/comments/new' component={ProjectCommentNew}/>
+
       </Switch>
     </div> );
   }

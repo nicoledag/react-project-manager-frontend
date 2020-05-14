@@ -142,7 +142,12 @@ span.color{
     background-color: white;
     padding: 20px;
     /* text-align: center; */
+   
 }
+/* 
+table th {
+    position: sticky;
+} */
 
 .table-container h2{
     text-align: center;
