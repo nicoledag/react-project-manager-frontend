@@ -18,7 +18,21 @@ export default (state = { projects: []}, action) => {
         case 'DELETE_PROJECT':
             const projects = state.projects.filter(project => project.id !== action.projectId);
             return {...state, projects }  
-        default: 
+        
+        case 'ADD_COMMENT':
+            let projectThree = state.projects.map(project => {
+                if (project.id === action.project.id) {
+                return action.project
+                } else {
+                return project
+                }
+            })
+          
+                return {...state, projects: projectThree}
+          
+            
+
+            default: 
             return state
     }
 }

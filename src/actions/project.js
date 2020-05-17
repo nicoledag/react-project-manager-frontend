@@ -28,6 +28,14 @@ export const myProjects = projects => {
     }
   }
   
+
+  export const addComment = project => {
+    return {
+      type: "ADD_COMMENT",
+      project
+    }
+  }
+
   export const fetchProjects = () => {
       return dispatch => {
           return fetch("http://localhost:3001/api/v1/projects", {
@@ -115,5 +123,24 @@ export const myProjects = projects => {
 
 
 export const createComment = (data) => {
-  
+  console.log("data", data)
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/projects/${data.id}/comments`, {
+      credentials: "include",
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(response => {
+      if(response.error){
+        alert(response.error)
+      }else {
+        dispatch(addComment(response.data))
+      }
+    })
+  }
+
 } 

@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom'
 class ProjectCommentNew extends Component {
     constructor(props){
         super(props)
-        console.log("commentprops", this.props)
+        // console.log("commentprops", this.props)
         this.state = {
             text: '', 
         }
@@ -22,9 +22,13 @@ class ProjectCommentNew extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state)
-        // this.props.createComment(this.state);
-        // this.props.history.push(`/projects/${this.props.project.id}`);
+        let projectId = parseInt(this.props.match.params.id)
+        // console.log(projectId)
+        // console.log(this.state)
+        let comment = {...this.state, id: projectId }
+        // console.log(comment)
+        this.props.createComment(comment);
+        this.props.history.push(`/projects/${projectId}`);
 
         this.setState({
             text: '',
