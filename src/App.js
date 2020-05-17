@@ -59,6 +59,7 @@ class App extends Component {
            }
           }/>
 
+
         <Route exact path='/projects/:id/edit' render={props => {
             const project = projects.projects.find(project => project.id === props.match.params.id)
             // debugger;
@@ -68,7 +69,16 @@ class App extends Component {
 
         <Route exact path='/clients' component={ClientsContainer} /> 
         
-        <Route exact path='/comments/new' component={ProjectCommentNew}/>
+        {/* <Route exact path='/projects/:id/comments/new' render={props => {
+            const project = projects.projects.find(project => project.id === props.match.params.id)
+            // debugger;
+            return <ProjectCommentNew project={project} {...props} />
+           }
+          }/> */}
+
+
+
+        <Route exact path='/projects/:id/comments/new' component={ProjectCommentNew}/>
 
       </Switch>
     </div> );

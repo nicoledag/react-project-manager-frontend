@@ -4,8 +4,9 @@ import { createComment } from '../../actions/project'
 import { Redirect } from 'react-router-dom'
 
 class ProjectCommentNew extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
+        console.log("commentprops", this.props)
         this.state = {
             text: '', 
         }
@@ -13,7 +14,7 @@ class ProjectCommentNew extends Component {
 
 
     handleChange = e =>{
-        // console.log(e.target.value)
+        console.log(e.target.value)
         this.setState({
             [e.target.id]: e.target.value 
         })
@@ -21,7 +22,7 @@ class ProjectCommentNew extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        // console.log(this.state)
+        console.log(this.state)
         // this.props.createComment(this.state);
         // this.props.history.push(`/projects/${this.props.project.id}`);
 

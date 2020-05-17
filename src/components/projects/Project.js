@@ -60,7 +60,7 @@ class Project extends Component {
             <br></br>
             <h2>Project Comments</h2>
             <div className="flex">
-              <li><Link to={`/comments/new`}>New Comment</Link></li>
+              <li><Link to={`/projects/${this.props.project.id}/comments/new`}>New Comment</Link></li>
              </div>
 
               {comments.map(comment => (
