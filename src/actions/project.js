@@ -36,6 +36,13 @@ export const myProjects = projects => {
     }
   }
 
+  export const deleteMyComment = project => {
+    return {
+      typle: "DELETE_COMMENT",
+      project
+    }
+  }
+
   export const fetchProjects = () => {
       return dispatch => {
           return fetch("http://localhost:3001/api/v1/projects", {
@@ -144,3 +151,24 @@ export const createComment = (data) => {
   }
 
 } 
+
+
+export const deleteComment = (commentId, projectId) => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/projects/${projectId}/comments/${commentId}`,{
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+    .then(r=> r.json())
+    .then(response => {
+      if(response.error){
+        alert(response.error)
+      }else {
+        dispatch(deleteMyComment(response.data))
+      }
+    })
+  }
+}

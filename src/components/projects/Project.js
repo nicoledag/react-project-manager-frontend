@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { deleteProject } from '../../actions/project'
+import { deleteComment } from '../../actions/project'
 
 class Project extends Component {
   constructor(props){
@@ -10,13 +11,16 @@ class Project extends Component {
   }
 
   handleDelete = (projectId) => {
-    console.log("projectId", projectId)
+    // console.log("projectId", projectId)
       this.props.deleteProject(projectId);
       this.props.history.push(`/projects`);
   }
 
   handleDeleteComment = (commentId) => {
-    console.log("commentId", commentId)
+    let projectId = parseInt(this.props.project.id)
+    // console.log("commentId", commentId)
+    this.props.deleteComment(commentId, projectId);
+    // this.props.history.push(`/projects`);
   }
 
   render() { 
@@ -87,7 +91,7 @@ const mapStateToProps = state => {
     clients: state.clientReducer,
   }
 }
-export default connect(mapStateToProps, { deleteProject })(Project)
+export default connect(mapStateToProps, { deleteProject, deleteComment })(Project)
 
 
 
