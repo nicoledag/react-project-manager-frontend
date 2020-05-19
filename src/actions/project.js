@@ -37,8 +37,9 @@ export const myProjects = projects => {
   }
 
   export const deleteMyComment = project => {
+    // console.log("action project" , project)
     return {
-      typle: "DELETE_COMMENT",
+      type: "DELETE_COMMENT",
       project
     }
   }
@@ -163,11 +164,11 @@ export const deleteComment = (commentId, projectId) => {
       },
     })
     .then(r=> r.json())
-    .then(response => {
-      if(response.error){
-        alert(response.error)
+    .then(project => {
+      if(project.error){
+        alert(project.error)
       }else {
-        dispatch(deleteMyComment(response.data))
+        dispatch(deleteMyComment(project.data))
       }
     })
   }

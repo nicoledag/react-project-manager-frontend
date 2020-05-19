@@ -22,15 +22,25 @@ export default (state = { projects: []}, action) => {
         case 'ADD_COMMENT':
             let projectThree = state.projects.map(project => {
                 if (project.id === action.project.id) {
-                return action.project
+                    return action.project
                 } else {
-                return project
+                    return project
                 }
             })
           
-                return {...state, projects: projectThree}
+            return {...state, projects: projectThree}
           
-            
+        case 'DELETE_COMMENT':
+            let projectFour = state.projects.map(project => {
+                if (project.id === action.project.id) {
+                    return action.project
+                } else {
+                    return project
+                }
+            })
+          
+            return {...state, projects: projectFour}
+          
 
             default: 
             return state
