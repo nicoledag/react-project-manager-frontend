@@ -12,6 +12,8 @@ import Project from './components/projects/Project'
 import ProjectNew from './components/projects/ProjectNew'
 import ProjectEdit from './components/projects/ProjectEdit'
 import ProjectCommentNew from './components/projects/ProjectCommentNew'
+import CommentEdit from './components/projects/CommentEdit'
+
 import Navbar from './components/layout/Navbar'
 import Home from './containers/Home'
 
@@ -68,17 +70,15 @@ class App extends Component {
           }/>
 
         <Route exact path='/clients' component={ClientsContainer} /> 
+        <Route exact path='/projects/:id/comments/new' component={ProjectCommentNew}/>
         
-        {/* <Route exact path='/projects/:id/comments/new' render={props => {
+        <Route exact path='/comments/:id/edit' render={props => {
             const project = projects.projects.find(project => project.id === props.match.params.id)
             // debugger;
-            return <ProjectCommentNew project={project} {...props} />
+            return <CommentEdit project={project} {...props} />
            }
-          }/> */}
+          }/>
 
-
-
-        <Route exact path='/projects/:id/comments/new' component={ProjectCommentNew}/>
 
       </Switch>
     </div> );
