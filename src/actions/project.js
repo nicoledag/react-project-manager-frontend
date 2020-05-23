@@ -44,6 +44,15 @@ export const myProjects = projects => {
     }
   }
 
+  export const editMyComment = project => {
+    // console.log("action project" , project)
+    return {
+      type: "EDIT_COMMENT",
+      project
+    }
+  }
+
+
   export const fetchProjects = () => {
       return dispatch => {
           return fetch("http://localhost:3001/api/v1/projects", {
@@ -169,6 +178,30 @@ export const deleteComment = (commentId, projectId) => {
         alert(project.error)
       }else {
         dispatch(deleteMyComment(project.data))
+      }
+    })
+  }
+}
+
+export const editComment = (data) => {
+  console.log("data", data)
+
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/comments/${data.id}`, {
+      credentials: "include",
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body:JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(response => {
+      console.log("Response", response);
+      if(response.error){
+        alert(response.error)
+      }else {
+        dispatch(editMyComment(response.data))
       }
     })
   }

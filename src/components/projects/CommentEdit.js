@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { createComment } from '../../actions/project'
+import { editComment } from '../../actions/project'
 import { Redirect } from 'react-router-dom'
+import { fetchComments } from '../../actions/comment'
 
 class CommentEdit extends Component {
     constructor(props){
         super(props)
         console.log("commentprops", this.props)
+        
         this.state = {
-            text: `${this.props ? this.props.comment.attributes.text : ""}`, 
+            text: `${this.props ? this.props.comment.text : ""}`, 
         }
     }
 
+    componentDidMount() {
+        this.props.fetchComments()
+      }
+    
 
     handleChange = e =>{
         console.log(e.target.value)
@@ -21,18 +27,15 @@ class CommentEdit extends Component {
     }
 
     handleSubmit = e => {
-        // e.preventDefault();
-        // let projectId = parseInt(this.props.match.params.id)
-        // // console.log(projectId)
-        // // console.log(this.state)
-        // let comment = {...this.state, id: projectId }
-        // // console.log(comment)
-        // this.props.createComment(comment);
-        // this.props.history.push(`/projects/${projectId}`);
+        e.preventDefault();
+        let comment = {...this.state, id: this.props.comment.comment_id }
+        this.props.editComment(comment);
+        let project = this.props.comment.project_id
+        this.props.history.push(`/projects/${project}`);
+        this.setState({
+            text: '',
+        })
 
-        // this.setState({
-        //     text: '',
-        // })
     }
 
     render() { 
@@ -66,7 +69,8 @@ class CommentEdit extends Component {
 const mapStateToProps = state => {
     return {
         loggedIn: !!state.currentUser,
+        comments: state.commentReducer,
     }
 }
  
-export default connect(mapStateToProps, {  })(CommentEdit);
+export default connect(mapStateToProps, { editComment, fetchComments })(CommentEdit);

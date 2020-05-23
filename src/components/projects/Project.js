@@ -10,6 +10,7 @@ class Project extends Component {
     // console.log("project props", props)
   }
 
+
   handleDelete = (projectId) => {
     // console.log("projectId", projectId)
       this.props.deleteProject(projectId);

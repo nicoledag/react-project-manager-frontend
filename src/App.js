@@ -76,12 +76,14 @@ class App extends Component {
         <Route exact path='/projects/:id/comments/new' component={ProjectCommentNew}/>
         
         <Route exact path='/comments/:id/edit' render={props => {
-            const comment = comments.comments.find(comment => comment.id === props.match.params.id)
-            // debugger;
+          const comments = projects.projects.map(project => project.attributes.comments).flat()
+          const comment = comments ? comments.filter(c => c.comment_id === parseInt(props.match.params.id))[0] :null
             return <CommentEdit comment={comment} {...props} />
            }
           }/>
 
+
+        {/* <Route exact path='/comments/:id/edit' component={CommentEdit} />  */}
 
       </Switch>
     </div> );

@@ -41,6 +41,18 @@ export default (state = { projects: []}, action) => {
           
             return {...state, projects: projectFour}
           
+            case 'EDIT_COMMENT':
+                let projectFive = state.projects.map(project => {
+                    if (project.id === action.project.id) {
+                        return action.project
+                    } else {
+                        return project
+                    }
+                })
+              
+                // debugger;
+                return {...state, projects: projectFive}
+    
 
             default: 
             return state
