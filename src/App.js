@@ -38,6 +38,7 @@ class App extends Component {
   render() { 
     const { projects } = this.props;
     const { clients } = this.props;
+    const { comments } = this.props;
     // console.log(projects)
     return ( 
       
@@ -74,10 +75,10 @@ class App extends Component {
         <Route exact path='/clients' component={ClientsContainer} /> 
         <Route exact path='/projects/:id/comments/new' component={ProjectCommentNew}/>
         
-        <Route exact path='/projects/:id/comments/:id/edit' render={props => {
-            const project = projects.projects.find(project => project.id === props.match.params.id)
+        <Route exact path='/comments/:id/edit' render={props => {
+            const comment = comments.comments.find(comment => comment.id === props.match.params.id)
             // debugger;
-            return <CommentEdit project={project} {...props} />
+            return <CommentEdit comment={comment} {...props} />
            }
           }/>
 
@@ -90,7 +91,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
 
   return{
-    projects: state.projectReducer
+    projects: state.projectReducer,
+    comments: state.commentReducer,
   }
   
 }

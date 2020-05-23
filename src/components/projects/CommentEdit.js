@@ -8,7 +8,7 @@ class CommentEdit extends Component {
         super(props)
         console.log("commentprops", this.props)
         this.state = {
-            // text: `${this.props ? this.props.comments.attributes.name : ""}`, 
+            text: `${this.props ? this.props.comment.attributes.text : ""}`, 
         }
     }
 
@@ -49,7 +49,7 @@ class CommentEdit extends Component {
                             <div className="label">    
                                 <label htmlFor="text">Comment Text:  </label>
                             </div>  
-                                <input type="text" name="text" id="text" placeholder="Enter Comment Text" onChange={this.handleChange} required/>
+                                <input type="text" name="text" id="text" value={this.state.text} onChange={this.handleChange} required/>
                         </div>
 
                         <div className="row">
