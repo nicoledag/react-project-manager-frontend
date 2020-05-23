@@ -6,6 +6,7 @@ import Register from './components/auth/Register'
 import { getCurrentUser } from './actions/currentUser'
 import { fetchProjects } from './actions/project'
 import { fetchClients } from './actions/client'
+import { fetchComments } from './actions/comment'
 import DashboardContainer from './containers/DashboardContainer'
 import ClientsContainer from './containers/ClientsContainer'
 import Project from './components/projects/Project'
@@ -24,6 +25,7 @@ class App extends Component {
     this.props.getCurrentUser()
     this.props.fetchProjects()
     this.props.fetchClients()
+    this.props.fetchComments()
 
   }
 
@@ -72,7 +74,7 @@ class App extends Component {
         <Route exact path='/clients' component={ClientsContainer} /> 
         <Route exact path='/projects/:id/comments/new' component={ProjectCommentNew}/>
         
-        <Route exact path='/comments/:id/edit' render={props => {
+        <Route exact path='/projects/:id/comments/:id/edit' render={props => {
             const project = projects.projects.find(project => project.id === props.match.params.id)
             // debugger;
             return <CommentEdit project={project} {...props} />
@@ -93,4 +95,4 @@ const mapStateToProps = (state) => {
   
 }
  
-export default connect(mapStateToProps, { getCurrentUser, fetchProjects, fetchClients } )(App);
+export default connect(mapStateToProps, { getCurrentUser, fetchProjects, fetchClients, fetchComments } )(App);

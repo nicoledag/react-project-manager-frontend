@@ -3,11 +3,13 @@ import thunk from 'redux-thunk'
 import currentUser from './reducers/currentUser'
 import clientReducer from './reducers/clientReducer'
 import projectReducer from './reducers/projectReducer'
+import commentReducer from './reducers/commentReducer'
 
 const reducer = combineReducers ({
     currentUser,
     clientReducer,
     projectReducer,
+    commentReducer,
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

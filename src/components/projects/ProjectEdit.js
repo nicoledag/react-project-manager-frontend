@@ -52,7 +52,7 @@ class ProjectEdit extends Component {
         return ( 
             <div className="container-form">
                 <div className="middle-container">
-                    <h1>New Project</h1>
+                    <h1>Edit Project</h1>
 
                     <form onSubmit={this.handleSubmit}>
                         <div className="row"> 

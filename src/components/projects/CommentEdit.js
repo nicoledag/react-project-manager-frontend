@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createComment } from '../../actions/project'
+// import { createComment } from '../../actions/project'
 import { Redirect } from 'react-router-dom'
 
 class CommentEdit extends Component {
     constructor(props){
         super(props)
-        // console.log("commentprops", this.props)
+        console.log("commentprops", this.props)
         this.state = {
-            text: '', 
+            // text: `${this.props ? this.props.comments.attributes.name : ""}`, 
         }
     }
 
@@ -21,18 +21,18 @@ class CommentEdit extends Component {
     }
 
     handleSubmit = e => {
-        e.preventDefault();
-        let projectId = parseInt(this.props.match.params.id)
-        // console.log(projectId)
-        // console.log(this.state)
-        let comment = {...this.state, id: projectId }
-        // console.log(comment)
-        this.props.createComment(comment);
-        this.props.history.push(`/projects/${projectId}`);
+        // e.preventDefault();
+        // let projectId = parseInt(this.props.match.params.id)
+        // // console.log(projectId)
+        // // console.log(this.state)
+        // let comment = {...this.state, id: projectId }
+        // // console.log(comment)
+        // this.props.createComment(comment);
+        // this.props.history.push(`/projects/${projectId}`);
 
-        this.setState({
-            text: '',
-        })
+        // this.setState({
+        //     text: '',
+        // })
     }
 
     render() { 
@@ -69,4 +69,4 @@ const mapStateToProps = state => {
     }
 }
  
-export default connect(mapStateToProps, { createComment })(CommentEdit);
+export default connect(mapStateToProps, {  })(CommentEdit);
