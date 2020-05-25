@@ -14,6 +14,7 @@ import ProjectNew from './components/projects/ProjectNew'
 import ProjectEdit from './components/projects/ProjectEdit'
 import ProjectCommentNew from './components/projects/ProjectCommentNew'
 import CommentEdit from './components/projects/CommentEdit'
+import ClientProjects from './components/clients/ClientProjects'
 
 import Navbar from './components/layout/Navbar'
 import Home from './containers/Home'
@@ -73,6 +74,9 @@ class App extends Component {
           }/>
 
         <Route exact path='/clients' component={ClientsContainer} /> 
+        <Route exact path='/clients/:id' component={ClientProjects} /> 
+
+        
         <Route exact path='/projects/:id/comments/new' component={ProjectCommentNew}/>
         
         <Route exact path='/comments/:id/edit' render={props => {
