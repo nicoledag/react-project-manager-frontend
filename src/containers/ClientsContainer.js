@@ -13,18 +13,19 @@ class ClientsContainer extends Component {
     }
     
     render() { 
+
         return (
             <div>
-                <Clients />
+                <Clients clientList={this.props}/>
             </div>
           );
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         clients: state.clientReducer
-//     }
-// }
+const mapStateToProps = state => {
+    return {
+        clients: state.clientReducer
+    }
+}
  
-export default connect(null, {fetchClients}) (ClientsContainer);
+export default connect(mapStateToProps, {fetchClients}) (ClientsContainer);
